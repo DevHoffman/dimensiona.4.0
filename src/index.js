@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Dimensiona from './templates/Dimensiona';
+
+import './style-global.css';
+import Dimensiona from './pages';
 
 ReactDOM.render(
   <React.StrictMode>
