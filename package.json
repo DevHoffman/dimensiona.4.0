@@ -3,21 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@popperjs/core": "^2.9.3",
+    "@popperjs/core": "^2.10.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "ajax": "0.0.4",
+    "axios": "^0.21.4",
     "babel": "^6.23.0",
     "bootstrap": "^5.1.0",
     "classnames": "^2.3.1",
+    "cors": "^2.8.5",
     "jquery": "^3.6.0",
     "primeicons": "^4.1.0",
     "primereact": "^6.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hooks-form": "^2.0.1",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
+    "request": "^2.88.2",
     "select2": "^4.1.0-rc.0",
     "web-vitals": "^1.1.2"
   },
@@ -46,8 +51,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
     "typescript": "^4.4.2"
   }
 }
