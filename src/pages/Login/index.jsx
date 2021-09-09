@@ -19,21 +19,17 @@ export default function Login() {
         //     alert("There is an error");
         // }
 
+        console.log(data)
 
-        axios({
-            method: "post",
-            url: "http://localhost/crud_codeigniter/home/autenticate2",
-            data: data,
-            headers: { "Content-Type": "multipart/form-data" },
+        axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
+        .then(function (response) {
+            //handle success
+            console.log(response)
         })
-            .then(function (response) {
-                //handle success
-                console.log(response);
-            })
-            .catch(function (response) {
-                //handle error
-                console.log(response);
-            });
+        .catch(function (response) {
+            //handle error
+            console.log(response)
+        });
 
     }
 
