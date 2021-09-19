@@ -17,260 +17,250 @@ $kt-media-breakpoints: (
 )!default;
 */
 
-.kt-login.kt-login--v1 .kt-login__aside {
-    width: 605px;
-    padding: 3rem 3.5rem;
-    background-repeat: no-repeat;
-    background-size: cover;
+.kt-login.kt-login--v2 {
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+.kt-login.kt-login--v2 .kt-login__wrapper {
+  padding: 6% 2rem 1rem 2rem;
+  /* margin: 0 auto 2rem auto; */
+  overflow: hidden;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__title {
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: 500;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container {
+  width: 430px;
+  margin: 0 auto;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__subtitle {
-    font-size: 1.2rem;
-    font-weight: 200;
-    margin: 2.5rem 0 3.5rem 0;
-    color: rgba(255, 255, 255, 0.7);
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__logo {
+  text-align: center;
+  margin: 0 auto 4rem auto;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__info {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__head {
+  margin-top: 1rem;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__info .kt-login__menu>a {
-    text-decoration: none;
-    color: #fff;
-    margin-right: 2rem;
-    display: inline-block;
-    color: rgba(255, 255, 255, 0.7);
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__head .kt-login__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__info .kt-login__menu>a:hover {
-    color: #fff;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__head .kt-login__desc {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__info .kt-login__menu>a:hover:after {
-    border-bottom: 1px solid #fff;
-    opacity: 0.3;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form {
+  margin: 4rem auto;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__info .kt-login__menu>a:last-child {
-    margin-right: 0;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .input-group {
+  padding: 0;
+  margin: 0 auto;
 }
 
-.kt-login.kt-login--v1 .kt-login__aside .kt-login__info .kt-login__copyright {
-    color: rgba(255, 255, 255, 0.4);
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control {
+  height: 46px;
+  border-radius: 46px;
+  border: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-top: 1.5rem;
+  background: rgba(67, 34, 167, 0.4);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper {
-    padding: 3rem 3rem;
-    background: #fff;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__head {
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: right;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__head .kt-login__signup-label {
-    color: #a7abc3;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__head .kt-login__signup-link {
-    color: #5d78ff;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control.is-valid+.valid-feedback, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control.is-invalid+.invalid-feedback {
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding-left: 1.6rem;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 100%;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra {
+  padding-left: 7px;
+  padding-right: 7px;
+  margin: 15px auto;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form {
-    width: 100%;
-    max-width: 450px;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox {
+  font-size: 1rem;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__title {
-    display: block;
-    text-align: center;
-    margin-bottom: 5rem;
-    text-decoration: none;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox>span {
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__title>h3 {
-    font-size: 2rem;
-    color: #67666e;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox input:checked~span {
+  border: 1px solid #fff;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form {
-    margin: 4rem auto;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox input:checked~span:after {
+  border: solid #fff;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form .form-group {
-    margin: 0;
-    padding: 0;
-    margin: 0 auto;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-login__link {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form .form-group .form-control {
-    border: none;
-    height: 50px;
-    margin-top: 1.25rem;
-    background-color: rgba(247, 247, 249, 0.7);
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    -webkit-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-login__link:hover {
+  color: #fff;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form .form-group .form-control:focus {
-    -webkit-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
-    background-color: #f7f7f9;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions {
+  text-align: center;
+  margin-top: 7%;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin: 3rem 0;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary {
+  height: 46px;
+  display: inline-block;
+  text-align: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  margin-top: 0.8rem;
+  border-radius: 60px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions .kt-login__link-forgot {
-    color: #a7abc3;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary.active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary:active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary:hover, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary.active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:hover {
+  color: #fff;
+  border-color: #fff;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions .kt-login__link-forgot:hover {
-    color: #5d78ff;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary {
+  color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions .kt-login__link-forgot:hover:after {
-    border-bottom: 1px solid #5d78ff;
-    opacity: 0.3;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary.active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:hover {
+  color: #fff;
+  border-color: #fff;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions .kt-login__btn-secondary, .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions .kt-login__btn-primary {
-    height: 50px;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__account {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__divider {
-    margin: 1rem 0 2rem 0;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__account .kt-login__account-msg {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #bbabf1;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__divider:not(:first-child):not(:last-child) {
-    font-weight: 400;
-    color: #b5b2c3;
-    font-size: 1rem;
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__account .kt-login__account-link {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__options {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    max-width: 100%;
+.kt-login.kt-login--v2.kt-login--signin .kt-login__signup {
+  display: none;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__options>a {
-    text-decoration: none;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+.kt-login.kt-login--v2.kt-login--signin .kt-login__signin {
+  display: block;
 }
 
-.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__options>a:not(:first-child):not(:last-child) {
-    margin: 0 1.5rem;
+.kt-login.kt-login--v2.kt-login--signin .kt-login__forgot {
+  display: none;
 }
 
-@media (min-width: 1025px) {
-    .kt-login.kt-login--v1 .kt-login__aside {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-    }
+.kt-login.kt-login--v2.kt-login--signup .kt-login__signup {
+  display: block;
+}
+
+.kt-login.kt-login--v2.kt-login--signup .kt-login__signin {
+  display: none;
+}
+
+.kt-login.kt-login--v2.kt-login--signup .kt-login__forgot {
+  display: none;
+}
+
+.kt-login.kt-login--v2.kt-login--signup .kt-login__account {
+  display: none;
+}
+
+.kt-login.kt-login--v2.kt-login--forgot .kt-login__signup {
+  display: none;
+}
+
+.kt-login.kt-login--v2.kt-login--forgot .kt-login__signin {
+  display: none;
+}
+
+.kt-login.kt-login--v2.kt-login--forgot .kt-login__forgot {
+  display: block;
 }
 
 @media (max-width: 1024px) {
-    .kt-login.kt-login--v1 .kt-login__aside {
-        width: 100%;
-        height: auto;
-        padding: 2rem 1.5rem;
-    }
-    .kt-login.kt-login--v1 .kt-login__aside .kt-login__logo {
-        margin-bottom: 2.5rem;
-    }
-    .kt-login.kt-login--v1 .kt-login__aside .kt-login__info {
-        margin-top: 2rem;
-    }
-    .kt-login.kt-login--v1 .kt-login__aside .kt-login__subtitle {
-        margin: 2rem 0;
-    }
-    .kt-login.kt-login--v1 .kt-login__wrapper {
-        padding: 3rem 1.5rem;
-    }
-    .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__head {
-        padding-left: 2rem;
-        right: 2rem;
-    }
-    .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        margin-top: 5rem;
-    }
-    .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__options>a:not(:first-child):not(:last-child) {
-        margin: 0 0.8rem;
-    }
+  .kt-login.kt-login--v2 .kt-login__wrapper {
+    padding-top: 5rem;
+    width: 100%;
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container {
+    margin: 0 auto;
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__account {
+    margin-top: 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .kt-login.kt-login--v2 .kt-login__wrapper {
+    width: 100%;
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .form-control {
+    background: rgba(67, 34, 167, 0.8);
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__actions .kt-login__btn-submit {
+    padding: 0.8rem 3rem;
+  }
+  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__account {
+    margin-top: 1.5rem;
+  }
+}
+
+.kt-form input, .kt-form input:focus, .kt-form label {
+  color: white;
+}
+
+#background-image{
+  background-image: url('../components/img/bg/bg-1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 }
