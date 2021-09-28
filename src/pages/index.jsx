@@ -1,53 +1,41 @@
 import { useForm } from "react-hook-form"
-import "./style.css";
-import logo from '../components/img/logo.svg';
-import axios from 'axios';
-import "izitoast/dist/css/iziToast.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import iziToast from "izitoast";
-// import background_image from './img/bg/bg-1.jpg';
+import logo from '../components/img/logo.svg'
+import axios from 'axios'
+import "izitoast/dist/css/iziToast.min.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+import iziToast from "izitoast"
+
+import "./style.css"
 
 function Dimensiona() {
-    // const { background_image } = 'background-image: url(' + background_image + ');'
-    // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm()
     const onSubmit = async data => {
         
-        // await sleep(2000)
-
-
+        var button = document.querySelector('.kt-login__btn-primary .loader')
         // Add a request interceptor
         axios.interceptors.request.use(function (config) {
             // Do something before request is sent
+            iziToast.destroy();
+            button.style.display = 'block' // Exibe o Loader
             iziToast.warning({
                 title: 'Autenticação em andamento',
-            });
-            console.log(config.data);
-            return config;
-        });
+            })
+            return config
+        })
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
         .then(response => {
-            iziToast.success({
-                id: 1,
-                title: 'Bem vindo ao Painel',
-                transitionOut: 'fadeInUp'
-            });
-            
-            // iziToast.hide({
-            //     transitionOut: 'fadeOutUp'
-            // });
-            window.localStorage.setItem("token", response.data.token);
-            // window.location = "/Dashboard";
+            button.style.display = 'none' // Some com o Loader
+            window.localStorage.setItem("token", response.data.token)
+            window.location = "/Dashboard"
+            return response
         })
-        .catch(error1 => {
+        .catch(error => {
+            button.style.display = 'none' // Some com o Loader
             iziToast.error({
                 title: 'Erro ao autenticar-se',
-                transitionOut: 'fadeInUp'
-            });
-            // iziToast.hide({
-            //     transitionOut: 'fadeOutUp'
-            // });
-        });
+            })
+            return error
+        })
     }
 
     return (
@@ -84,7 +72,7 @@ function Dimensiona() {
                                                 </div>
                                             </div>
                                             <div className="kt-login__actions">
-                                                <button id="kt_login_signin_submit" className="btn btn-pill kt-login__btn-primary">Autenticar</button>
+                                                <button id="kt_login_signin_submit" className="btn btn-pill kt-login__btn-primary botao">Autenticar <div className="loader" /></button>
                                             </div>
                                             <div className="message">
                                                 
@@ -160,4 +148,4 @@ function Dimensiona() {
     )
 }
 
-export default Dimensiona;
+export default Dimensiona

@@ -5,14 +5,13 @@ import './style.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
-function Home(){
+function Dashboard(){
     return(
         <div>
             <Router>
                 <div>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/Dashboard">Home</Link></li>
                     </ul>
 
                     <hr />
@@ -21,11 +20,11 @@ function Home(){
                     <h1>Home</h1>
                     <Footer />
 
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/Dashboard" component={Dashboard} />
                 </div>
             </Router>
         </div>
     )
 }
 
-export default Home;
+export default Dashboard;
