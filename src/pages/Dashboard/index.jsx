@@ -1,28 +1,23 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { useEffect } from 'react';
 
-import './style.css';
+import './style.css'
 
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import iziToast from 'izitoast';
 
 function Dashboard(){
+    useEffect(() => {
+        iziToast.success({
+            title: 'Bem vindo ao painel',
+            position: 'topLeft', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+        })
+    }, []);
     return(
         <div>
-            <Router>
-                <div>
-                    <ul>
-                        <li><Link to="/Dashboard">Home</Link></li>
-                    </ul>
-
-                    <hr />
-
-                    <Navbar />
-                    <h1>Home</h1>
-                    <Footer />
-
-                    <Route exact path="/Dashboard" component={Dashboard} />
-                </div>
-            </Router>
+            <Navbar />
+            <h1>Home</h1>
+            <Footer />
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form"
 import logo from '../components/img/logo.svg'
 import axios from 'axios'
-import "izitoast/dist/css/iziToast.min.css"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 
 import "./style.css"
@@ -15,25 +15,63 @@ function Dimensiona() {
         // Add a request interceptor
         axios.interceptors.request.use(function (config) {
             // Do something before request is sent
-            iziToast.destroy();
+            iziToast.destroy()
             button.style.display = 'block' // Exibe o Loader
             iziToast.warning({
                 title: 'Autenticação em andamento',
+                position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
             })
             return config
         })
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
         .then(response => {
-            button.style.display = 'none' // Some com o Loader
             window.localStorage.setItem("token", response.data.token)
-            window.location = "/Dashboard"
+            button.style.display = 'none' // Some com o Loader
+            iziToast.show({
+                transitionOut: 'fadeOut',
+            })
+            iziToast.destroy()
+            iziToast.success({
+                title: 'Usuário Autenticado',
+                message: 'Você será redirecionado em 5 segundos...',
+                position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                transitionOut: 'fadeOut',
+            })
+            setTimeout(() => { // Redireciona para Dashboard
+                window.location = "/Dashboard"
+            }, 5000);
             return response
         })
         .catch(error => {
+
             button.style.display = 'none' // Some com o Loader
-            iziToast.error({
-                title: 'Erro ao autenticar-se',
+            iziToast.show({
+                transitionOut: 'fadeOut',
             })
+            iziToast.destroy()
+
+            if (error.response.status === 401) { // Erro de Credencial
+                iziToast.error({
+                    title: 'Credenciais Inválidas',
+                    position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                    transitionOut: 'fadeOut',
+                })
+            }
+            else if (error.response.status === 404) { // API Não encontrada
+                iziToast.error({
+                    title: 'Erro ao Autenticar-se',
+                    position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                    transitionOut: 'fadeOut',
+                })
+            }
+            else {
+                iziToast.error({ // Qualquer outro erro
+                    title: 'Erro ao Autenticar-se 2',
+                    position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                    transitionOut: 'fadeOut',
+                })
+            }
+            
             return error
         })
     }
@@ -47,7 +85,7 @@ function Dimensiona() {
                             <div className="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
                                 <div className="kt-login__container">
                                     <div className="kt-login__logo">
-                                        <img src={logo} alt="Logo do Site" width="100px" />
+                                        <img src={logo} alt="Logo do Site" />
                                     </div>
                                     <div className="kt-login__signin">
                                         <div className="kt-login__head">

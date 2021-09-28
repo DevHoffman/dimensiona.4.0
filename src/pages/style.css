@@ -26,6 +26,8 @@ $kt-media-breakpoints: (
   padding: 6% 2rem 1rem 2rem;
   /* margin: 0 auto 2rem auto; */
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container {
@@ -36,6 +38,13 @@ $kt-media-breakpoints: (
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__logo {
   text-align: center;
   margin: 0 auto 4rem auto;
+}
+
+.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__logo img {
+  animation: spin 10s linear infinite;
+  -webkit-animation: spin 10s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  width: 150px;
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__head {
