@@ -4,13 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form"
 import "./style.css"
 
 function Dimensiona() {
     const { register, handleSubmit } = useForm()
+    
     const onSubmit = async data => {
         var button = document.querySelector('.kt-login__btn-primary .loader')
+
         // Add a request interceptor
         axios.interceptors.request.use(function (config) {
             // Do something before request is sent
@@ -32,7 +35,6 @@ function Dimensiona() {
             iziToast.destroy()
             iziToast.success({
                 title: 'Usuário Autenticado',
-                message: 'Você será redirecionado em 5 segundos...',
                 position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
                 transitionOut: 'fadeOut',
             })
@@ -74,22 +76,28 @@ function Dimensiona() {
             return error
         })
     }
+    
 
     const onClick = async data => {
-        console.log(data.target.id)
-        if (data.target.id === 'kt_login_signup') {
-            var signup = document.querySelector('.kt-login__signup')
+        var signup = document.querySelector('.kt-login__signup')
+        var signin = document.querySelector('.kt-login__signin')
+        var forgot = document.querySelector('.kt-login__forgot')
+        var link_account = document.querySelector('.kt-login__account')
+        if (data.target.id === 'kt_login_signup' || data.target.id === 'kt_login_signup_cancel') {
             signup.classList.toggle('show'); // Cadastro
-            console.log(signup)
-            var signin = document.querySelector('.kt-login__signin')
             signin.classList.toggle('hidden'); // Login
-            var forgot = document.querySelector('.kt-login__forgot')
             forgot.classList.toggle('hidden'); // Reset Senha
+            link_account.classList.toggle('hidden'); // Reset Senha
+        }
+        else if (data.target.id === 'kt_login_forgot' || data.target.id === 'kt_login_forgot_cancel') {
+            forgot.classList.toggle('show');
+
+            signup.classList.toggle('hidden'); // Cadastro
+            signin.classList.toggle('hidden'); // Login
+            link_account.classList.toggle('show'); // Reset Senha
         }
         // var signin = document.querySelector('.kt-login__signin')
         // signin.classList.toggle('hidden');
-        // var forgot = document.querySelector('.kt-login__forgot')
-        // forgot.classList.toggle('show');
         // document.querySelector('.kt-login__title').html('Esqueceu sua senha ?')
     } 
 
@@ -117,10 +125,10 @@ function Dimensiona() {
                                             </div>
                                             <div className="row kt-login__extra">
                                                 <div className="col">
-                                                    <label className="kt-checkbox">
+                                                    {/* <label className="kt-checkbox">
                                                         <input type="checkbox" name="remember" /> Lembrar me
                                                         <span></span>
-                                                    </label>
+                                                    </label> */}
                                                 </div>
                                                 <div className="col kt-align-right">
                                                     <button type="button" id="kt_login_forgot" className="kt-link kt-login__link btn btn-link" onClick={onClick}>Esqueceu sua senha ?</button>
@@ -166,7 +174,7 @@ function Dimensiona() {
                                             </div>
                                             <div className="kt-login__actions">
                                                 <button id="kt_login_signup_submit" className="btn btn-pill kt-login__btn-primary">Criar Conta</button>&nbsp;&nbsp;
-                                                <button id="kt_login_signup_cancel" className="btn btn-pill kt-login__btn-secondary">Cancelar</button>
+                                                <button type="button" id="kt_login_signup_cancel" className="btn btn-pill kt-login__btn-secondary" onClick={onClick}>Cancelar</button>
                                             </div>
                                         </form>
                                     </div>
