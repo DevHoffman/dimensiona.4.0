@@ -1,16 +1,15 @@
-import { useForm } from "react-hook-form"
 import logo from '../components/img/logo.svg'
 import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 
+import { useForm } from "react-hook-form"
 import "./style.css"
 
 function Dimensiona() {
     const { register, handleSubmit } = useForm()
     const onSubmit = async data => {
-        
         var button = document.querySelector('.kt-login__btn-primary .loader')
         // Add a request interceptor
         axios.interceptors.request.use(function (config) {
@@ -76,6 +75,24 @@ function Dimensiona() {
         })
     }
 
+    const onClick = async data => {
+        console.log(data.target.id)
+        if (data.target.id === 'kt_login_signup') {
+            var signup = document.querySelector('.kt-login__signup')
+            signup.classList.toggle('show'); // Cadastro
+            console.log(signup)
+            var signin = document.querySelector('.kt-login__signin')
+            signin.classList.toggle('hidden'); // Login
+            var forgot = document.querySelector('.kt-login__forgot')
+            forgot.classList.toggle('hidden'); // Reset Senha
+        }
+        // var signin = document.querySelector('.kt-login__signin')
+        // signin.classList.toggle('hidden');
+        // var forgot = document.querySelector('.kt-login__forgot')
+        // forgot.classList.toggle('show');
+        // document.querySelector('.kt-login__title').html('Esqueceu sua senha ?')
+    } 
+
     return (
         <div>
             <div className="kt-grid kt-grid--ver kt-grid--root">
@@ -106,7 +123,7 @@ function Dimensiona() {
                                                     </label>
                                                 </div>
                                                 <div className="col kt-align-right">
-                                                    <button id="kt_login_forgot" className="kt-link kt-login__link btn btn-link">Esqueceu sua senha ?</button>
+                                                    <button type="button" id="kt_login_forgot" className="kt-link kt-login__link btn btn-link" onClick={onClick}>Esqueceu sua senha ?</button>
                                                 </div>
                                             </div>
                                             <div className="kt-login__actions">
@@ -131,7 +148,7 @@ function Dimensiona() {
                                                 <input className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" />
                                             </div>
                                             <div className="input-group">
-                                                <input className="form-control" type="password" placeholder="Senha" name="senha" />
+                                                <input className="form-control" type="password" placeholder="Senha" name="senha" autoComplete="off" />
                                             </div>
                                             <div className="input-group">
                                                 <input className="form-control" type="password" placeholder="Confirmar Senha" name="senha2" />
@@ -141,7 +158,7 @@ function Dimensiona() {
                                                     <label className="kt-checkbox">
                                                         <input type="checkbox" name="agree" />
                                                         Eu concordo com os
-                                                        <button type="button" className="kt-link kt-login__link kt-font-bold">termos e confições. </button>
+                                                        <button type="button" className="kt-link kt-login__link btn btn-link kt-font-bold">Termos e Condições.</button>
                                                         <span></span>
                                                     </label>
                                                     <span className="form-text text-muted"></span>
@@ -165,7 +182,7 @@ function Dimensiona() {
                                             </div>
                                             <div className="kt-login__actions">
                                                 <button id="kt_login_forgot_submit" className="btn btn-pill kt-login__btn-primary">Request</button>&nbsp;&nbsp;
-                                                <button id="kt_login_forgot_cancel" className="btn btn-pill kt-login__btn-secondary">Cancelar</button>
+                                                <button type="button" id="kt_login_forgot_cancel" className="btn btn-pill kt-login__btn-secondary" onClick={onClick}>Cancelar</button>
                                             </div>
                                         </form>
                                     </div>
@@ -174,7 +191,7 @@ function Dimensiona() {
                                         <span className="kt-login__account-msg">
                                             Não tem conta ainda ?
                                         </span>&nbsp;&nbsp;
-                                        <button type="button" id="kt_login_signup" className="kt-link kt-login__link btn btn-link">Criar Conta</button>
+                                        <button type="button" id="kt_login_signup" className="kt-link kt-login__link btn btn-link" onClick={onClick}>Criar Conta</button>
                                     </div>
                                 </div>
                             </div>
