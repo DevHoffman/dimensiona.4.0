@@ -6,9 +6,23 @@
     <title>React App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" /><!--begin::Fonts -->
-      
-    <link rel="stylesheet" href="assets/css/minimal.css">
+    
+    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+
+    <!-- <link rel="stylesheet" href="assets/css/minimal.css"> -->
     <script src="assets/js/pace.min.js"></script>
+    
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+
+    <!--begin::Page Vendor Stylesheets(used by this page)-->
+    <!-- <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" /> -->
+    <!--end::Page Vendor Stylesheets-->
+
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     
   </head>
   <body>
@@ -24,16 +38,40 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+      <div id="loader">
+        <div class="line-scale-pulse-out">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+
   </body>
+
+  <!--begin::Javascript-->
+  <!--begin::Global Javascript Bundle(used by all pages)-->
+  <script src="assets/plugins/global/plugins.bundle.js"></script>
+  <script src="assets/js/scripts.bundle.js"></script>
+  <!--end::Global Javascript Bundle-->
   
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-  <script>
-    WebFont.load({
-      google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
-      active: function () {
-        sessionStorage.fonts = true;
-      }
-    });
-  </script>
+  <!--begin::Page Vendors Javascript(used by this page)-->
+  <!-- <script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script> -->
+  <!--end::Page Vendors Javascript-->
+
+  <!--begin::Page Custom Javascript(used by this page)-->
+  <script src="assets/js/custom/widgets.js"></script>
+  <script src="assets/js/custom/apps/chat/chat.js"></script>
+  <script src="assets/js/custom/modals/create-app.js"></script>
+  <script src="assets/js/custom/modals/upgrade-plan.js"></script>
+  <!--end::Page Custom Javascript-->
+  <!--end::Javascript-->
   
 </html>

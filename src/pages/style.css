@@ -112,10 +112,13 @@ $kt-media-breakpoints: (
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox {
   font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox>span {
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  /* border: 1px solid rgba(255, 255, 255, 0.6); */
+  padding-left: 15px;
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox input:checked~span {
@@ -141,8 +144,6 @@ $kt-media-breakpoints: (
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary {
-  height: 46px;
-  display: inline-block;
   text-align: center;
   padding-left: 4rem;
   padding-right: 4rem;
@@ -150,12 +151,13 @@ $kt-media-breakpoints: (
   border-radius: 60px;
   background: transparent;
   color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary.active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary:active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-primary:hover, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary.active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:hover {
-  color: #fff;
+  color: #333;
   border-color: #fff;
+  background-color: white;
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary {
@@ -165,6 +167,7 @@ $kt-media-breakpoints: (
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary.active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:active, .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__actions .kt-login__btn-secondary:hover {
   color: #fff;
+  color: #333;
   border-color: #fff;
 }
 
@@ -269,7 +272,10 @@ $kt-media-breakpoints: (
   background-image: url('../components/img/bg/bg-1.jpg');
   background-size: cover;
   background-position: center;
-  height: 100%;
+    height: calc(100vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .loader {

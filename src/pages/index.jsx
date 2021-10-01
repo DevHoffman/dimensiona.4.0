@@ -1,11 +1,11 @@
-import logo from '../components/img/logo.svg'
+import logo from '../components/assets/img/logo.svg'
 import axios from 'axios'
-import "bootstrap/dist/css/bootstrap.min.css"
+
 import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 
-import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form"
+
 import "./style.css"
 
 function Dimensiona() {
@@ -28,6 +28,7 @@ function Dimensiona() {
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
         .then(response => {
             window.localStorage.setItem("token", response.data.token)
+            var timeout = 3000
             button.style.display = 'none' // Some com o Loader
             iziToast.show({
                 transitionOut: 'fadeOut',
@@ -37,20 +38,16 @@ function Dimensiona() {
                 title: 'Usuário Autenticado',
                 position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
                 transitionOut: 'fadeOut',
+                timeout: timeout,
             })
             setTimeout(() => { // Redireciona para Dashboard
                 window.location = "/Dashboard"
-            }, 5000);
+            }, timeout);
             return response
         })
         .catch(error => {
-
             button.style.display = 'none' // Some com o Loader
-            iziToast.show({
-                transitionOut: 'fadeOut',
-            })
             iziToast.destroy()
-
             if (error.response.status === 401) { // Erro de Credencial
                 iziToast.error({
                     title: 'Credenciais Inválidas',
@@ -76,7 +73,6 @@ function Dimensiona() {
             return error
         })
     }
-    
 
     const onClick = async data => {
         var signup = document.querySelector('.kt-login__signup')
@@ -85,20 +81,18 @@ function Dimensiona() {
         var link_account = document.querySelector('.kt-login__account')
         if (data.target.id === 'kt_login_signup' || data.target.id === 'kt_login_signup_cancel') {
             signup.classList.toggle('show'); // Cadastro
+
             signin.classList.toggle('hidden'); // Login
-            forgot.classList.toggle('hidden'); // Reset Senha
-            link_account.classList.toggle('hidden'); // Reset Senha
+            forgot.classList.toggle('hidden'); // Reset Senha 
+            link_account.classList.toggle('hidden'); // Cadastro Link
         }
         else if (data.target.id === 'kt_login_forgot' || data.target.id === 'kt_login_forgot_cancel') {
-            forgot.classList.toggle('show');
+            forgot.classList.toggle('show'); // Reset Senha 
 
             signup.classList.toggle('hidden'); // Cadastro
             signin.classList.toggle('hidden'); // Login
-            link_account.classList.toggle('show'); // Reset Senha
+            link_account.classList.toggle('hidden'); // Cadastro Link
         }
-        // var signin = document.querySelector('.kt-login__signin')
-        // signin.classList.toggle('hidden');
-        // document.querySelector('.kt-login__title').html('Esqueceu sua senha ?')
     } 
 
     return (
@@ -150,13 +144,13 @@ function Dimensiona() {
                                         </div>
                                         <form className="kt-login__form kt-form" action="">
                                             <div className="input-group">
-                                                <input className="form-control" type="text" placeholder="Fullname" name="fullname" />
+                                                <input className="form-control" type="text" required placeholder="Nome Completo" name="nome" />
                                             </div>
                                             <div className="input-group">
-                                                <input className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" />
+                                                <input className="form-control" type="text" required placeholder="Login" name="login" autoComplete="off" />
                                             </div>
                                             <div className="input-group">
-                                                <input className="form-control" type="password" placeholder="Senha" name="senha" autoComplete="off" />
+                                                <input className="form-control" type="password" required placeholder="Senha" name="senha" autoComplete="off" />
                                             </div>
                                             <div className="input-group">
                                                 <input className="form-control" type="password" placeholder="Confirmar Senha" name="senha2" />
@@ -164,10 +158,10 @@ function Dimensiona() {
                                             <div className="row kt-login__extra">
                                                 <div className="col kt-align-left">
                                                     <label className="kt-checkbox">
-                                                        <input type="checkbox" name="agree" />
+                                                        <input type="checkbox" name="agree" required /><span>
                                                         Eu concordo com os
-                                                        <button type="button" className="kt-link kt-login__link btn btn-link kt-font-bold">Termos e Condições.</button>
-                                                        <span></span>
+                                                        <a href="#nada" className="kt-link kt-login__link btn btn-link kt-font-bold">Termos e Condições.</a>
+                                                        </span>
                                                     </label>
                                                     <span className="form-text text-muted"></span>
                                                 </div>
