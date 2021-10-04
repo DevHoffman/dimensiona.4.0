@@ -64,10 +64,6 @@ $kt-media-breakpoints: (
   color: rgba(255, 255, 255, 0.8);
 }
 
-.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form {
-  margin: 4rem auto;
-}
-
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .input-group {
   padding: 0;
   margin: 0 auto;
@@ -119,10 +115,6 @@ $kt-media-breakpoints: (
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox>span {
   /* border: 1px solid rgba(255, 255, 255, 0.6); */
   padding-left: 15px;
-}
-
-.kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox input:checked~span {
-  border: 1px solid #fff;
 }
 
 .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-form .kt-login__extra .kt-checkbox input:checked~span:after {
@@ -229,14 +221,10 @@ $kt-media-breakpoints: (
 
 @media (max-width: 1024px) {
   .kt-login.kt-login--v2 .kt-login__wrapper {
-    padding-top: 5rem;
     width: 100%;
   }
   .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container {
     margin: 0 auto;
-  }
-  .kt-login.kt-login--v2 .kt-login__wrapper .kt-login__container .kt-login__account {
-    margin-top: 10rem;
   }
 }
 

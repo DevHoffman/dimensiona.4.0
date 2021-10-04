@@ -4,14 +4,21 @@ import axios from 'axios'
 import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 
+// import { useEffect, useState } from 'react'
 import { useForm } from "react-hook-form"
 
 import "./style.css"
 
 function Dimensiona() {
+    // const [senha, setSenha] = useState('')
+
     const { register, handleSubmit } = useForm()
+
+    // useEffect(() => {
+    //  setSenha(senha: senha)
+    // }, [])
     
-    const onSubmit = async data => {
+    const onSubmitAuth = async data => { // Função Autenticar
         var button = document.querySelector('.kt-login__btn-primary .loader')
 
         // Add a request interceptor
@@ -27,7 +34,7 @@ function Dimensiona() {
         })
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
         .then(response => {
-            window.localStorage.setItem("token", response.data.token)
+            window.localStorage.setItem("token", response.data)
             var timeout = 3000
             button.style.display = 'none' // Some com o Loader
             iziToast.show({
@@ -43,6 +50,67 @@ function Dimensiona() {
             setTimeout(() => { // Redireciona para Dashboard
                 window.location = "/Dashboard"
             }, timeout);
+            return response
+        })
+        .catch(error => {
+            button.style.display = 'none' // Some com o Loader
+            iziToast.destroy()
+            if (error.response.status === 401) { // Erro de Credencial
+                iziToast.error({
+                    title: 'Credenciais Inválidas',
+                    position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                    transitionOut: 'fadeOut',
+                })
+            }
+            else if (error.response.status === 404) { // API Não encontrada
+                iziToast.error({
+                    title: 'Erro ao Autenticar-se',
+                    position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                    transitionOut: 'fadeOut',
+                })
+            }
+            else {
+                iziToast.error({ // Qualquer outro erro
+                    title: 'Erro ao Autenticar-se 2',
+                    position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                    transitionOut: 'fadeOut',
+                })
+            }
+            
+            return error
+        })
+    }
+
+    const onSubmitCreateAccount = async data => { // Função Criar Conta
+        var button = document.querySelector('.kt-login__btn-primary .loader')
+
+        // Add a request interceptor
+        axios.interceptors.request.use(function (config) {
+            // Do something before request is sent
+            iziToast.destroy()
+            button.style.display = 'block' // Exibe o Loader
+            iziToast.warning({
+                title: 'Autenticação em andamento',
+                position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+            })
+            return config
+        })
+        axios.post('http://localhost/crud_codeigniter/cadastrar/insert', data)
+        .then(response => {
+            window.localStorage.setItem("token", response.data)
+            console.log(response.data)
+            var timeout = 3000
+            button.style.display = 'none' // Some com o Loader
+            iziToast.show({
+                transitionOut: 'fadeOut',
+            })
+            iziToast.destroy()
+            iziToast.success({
+                title: 'Usuário Cadastrado',
+                position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+                transitionOut: 'fadeOut',
+                timeout: timeout,
+            })
             return response
         })
         .catch(error => {
@@ -95,6 +163,10 @@ function Dimensiona() {
         }
     } 
 
+    function onHandleChange(e) {
+        console.log(e.target.value)
+    }
+
     return (
         <div>
             <div className="kt-grid kt-grid--ver kt-grid--root">
@@ -110,7 +182,7 @@ function Dimensiona() {
                                         <div className="kt-login__head">
                                             <h3 className="kt-login__title">Entrar no Painel</h3>
                                         </div>
-                                        <form id="login__signin" className="kt-form" onSubmit={handleSubmit(onSubmit)}>
+                                        <form id="login__signin" className="kt-form" onSubmit={handleSubmit(onSubmitAuth)}>
                                             <div className="input-group">
                                                 <input {...register("login")} className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" />
                                             </div>
@@ -142,7 +214,7 @@ function Dimensiona() {
                                             <h3 className="kt-login__title">Criar Conta</h3>
                                             <div className="kt-login__desc">Deixe seus dados para criar sua conta:</div>
                                         </div>
-                                        <form className="kt-login__form kt-form" action="">
+                                        <form className="kt-login__form kt-form" onSubmit={handleSubmit(onSubmitCreateAccount)}>
                                             <div className="input-group">
                                                 <input className="form-control" type="text" required placeholder="Nome Completo" name="nome" />
                                             </div>
@@ -153,7 +225,7 @@ function Dimensiona() {
                                                 <input className="form-control" type="password" required placeholder="Senha" name="senha" autoComplete="off" />
                                             </div>
                                             <div className="input-group">
-                                                <input className="form-control" type="password" placeholder="Confirmar Senha" name="senha2" />
+                                                <input className="form-control" type="password" required placeholder="Confirmar Senha" name="senha2" onChange={onHandleChange} autoComplete="off" />
                                             </div>
                                             <div className="row kt-login__extra">
                                                 <div className="col kt-align-left">

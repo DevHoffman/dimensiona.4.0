@@ -3318,7 +3318,7 @@ function Header() {
                                         {/* <!--end::Menu item-->*/}
                                         {/* <!--begin::Menu item-->*/}
                                         <div className="menu-item px-5">
-                                            <a href="../../demo1/dist/authentication/flows/basic/sign-in.html" className="menu-link px-5">Sign Out</a>
+                                            <a href="./" className="menu-link px-5">Log Out</a>
                                         </div>
                                         {/* <!--end::Menu item-->*/}
                                         {/* <!--begin::Menu separator-->*/}
