@@ -8,6 +8,8 @@ import Header from '../../components/Template/Header'
 import Calendar from '../../components/Calendar'
 import Footer from '../../components/Template/Footer'
 
+import '@fortawesome/fontawesome-free/js/all'
+
 function Dashboard(){
 
     useEffect(() => {
@@ -15,7 +17,6 @@ function Dashboard(){
 
     return(
         <div>
-
             {/* <!--begin::Body-->*/}
             <div id="kt_body" className="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed">
                 {/* <!--begin::Main-->*/}

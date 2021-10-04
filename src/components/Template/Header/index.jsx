@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+
 import './style.css'
 
 function Header() {
+    
+
+    
     return (
         <div>
             <div id="kt_header" className="header align-items-stretch">
@@ -3318,7 +3323,7 @@ function Header() {
                                         {/* <!--end::Menu item-->*/}
                                         {/* <!--begin::Menu item-->*/}
                                         <div className="menu-item px-5">
-                                            <a href="./" className="menu-link px-5">Log Out</a>
+                                            <Link to="/" className="menu-link px-5">Log Out</Link>
                                         </div>
                                         {/* <!--end::Menu item-->*/}
                                         {/* <!--begin::Menu separator-->*/}

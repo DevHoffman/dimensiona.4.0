@@ -1,22 +1,14 @@
-import logo from '../components/assets/img/logo.svg'
-import axios from 'axios'
-
 import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 
-// import { useEffect, useState } from 'react'
+import "./style.css"
+import logo from '../components/assets/img/logo.svg'
+
+import axios from 'axios'
 import { useForm } from "react-hook-form"
 
-import "./style.css"
-
 function Dimensiona() {
-    // const [senha, setSenha] = useState('')
-
     const { register, handleSubmit } = useForm()
-
-    // useEffect(() => {
-    //  setSenha(senha: senha)
-    // }, [])
     
     const onSubmitAuth = async data => { // Função Autenticar
         var button = document.querySelector('.kt-login__btn-primary .loader')
@@ -34,12 +26,9 @@ function Dimensiona() {
         })
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
         .then(response => {
-            window.localStorage.setItem("token", response.data)
+            window.localStorage.setItem("user_data", response.data)
             var timeout = 3000
             button.style.display = 'none' // Some com o Loader
-            iziToast.show({
-                transitionOut: 'fadeOut',
-            })
             iziToast.destroy()
             iziToast.success({
                 title: 'Usuário Autenticado',
@@ -49,7 +38,7 @@ function Dimensiona() {
             })
             setTimeout(() => { // Redireciona para Dashboard
                 window.location = "/Dashboard"
-            }, timeout);
+            }, timeout)
             return response
         })
         .catch(error => {
@@ -148,18 +137,18 @@ function Dimensiona() {
         var forgot = document.querySelector('.kt-login__forgot')
         var link_account = document.querySelector('.kt-login__account')
         if (data.target.id === 'kt_login_signup' || data.target.id === 'kt_login_signup_cancel') {
-            signup.classList.toggle('show'); // Cadastro
+            signup.classList.toggle('show') // Cadastro
 
-            signin.classList.toggle('hidden'); // Login
-            forgot.classList.toggle('hidden'); // Reset Senha 
-            link_account.classList.toggle('hidden'); // Cadastro Link
+            signin.classList.toggle('hidden') // Login
+            forgot.classList.toggle('hidden') // Reset Senha 
+            link_account.classList.toggle('hidden') // Cadastro Link
         }
         else if (data.target.id === 'kt_login_forgot' || data.target.id === 'kt_login_forgot_cancel') {
-            forgot.classList.toggle('show'); // Reset Senha 
+            forgot.classList.toggle('show') // Reset Senha 
 
-            signup.classList.toggle('hidden'); // Cadastro
-            signin.classList.toggle('hidden'); // Login
-            link_account.classList.toggle('hidden'); // Cadastro Link
+            signup.classList.toggle('hidden') // Cadastro
+            signin.classList.toggle('hidden') // Login
+            link_account.classList.toggle('hidden') // Cadastro Link
         }
     } 
 
