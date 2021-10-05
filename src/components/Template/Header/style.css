@@ -1,0 +1,103 @@
+@media (min-width:992px) {
+    .header-fixed .wrapper{
+        padding-top:65px
+    }
+
+    .header-fixed.toolbar-fixed .wrapper{
+        padding-top:calc(65px + var(--kt-toolbar-height))
+    }
+}
+
+@media (max-width:991.98px) {
+    .header-tablet-and-mobile-fixed .wrapper{
+        padding-top:55px
+    }
+
+    .header-tablet-and-mobile-fixed.toolbar-tablet-and-mobile-fixed .wrapper{
+        padding-top:calc(55px + var(--kt-toolbar-height-tablet-and-mobile))
+    }
+}
+
+@media (min-width:992px){
+    .header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        position:relative;
+        z-index:2;
+        height:65px;
+        transition:left .3s ease
+    }
+
+    .header-fixed .header{
+        position:fixed;
+        top:0;
+        right:0;
+        left:0;
+        z-index:100;
+        background-color:#fff;
+        height:65px;
+        padding:0;
+        box-shadow:0 10px 30px 0 rgba(82,63,105,.05)
+    }
+
+    .header-fixed.toolbar-fixed .header{
+        box-shadow:none
+    }
+
+    .header .header-menu{
+        display:flex
+    }
+}
+
+@media (max-width:991.98px){
+    .header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        height:55px;
+        position:relative;
+        z-index:3
+    }
+
+    .header-tablet-and-mobile-fixed .header{
+        position:fixed;
+        top:0;
+        right:0;
+        left:0;
+        z-index:100;
+        height:55px;
+        min-height:55px;
+        background-color:#fff;
+        box-shadow:0 10px 30px 0 rgba(82,63,105,.05)
+    }
+
+    .header-tablet-and-mobile-fixed.toolbar-tablet-and-mobile-fixed .header{
+        box-shadow:none
+    }
+
+    .header .header-menu{
+        display:none;
+        z-index:99
+    }
+
+    .header .page-title{
+        display:none!important
+    }
+}
+
+@media (min-width:992px) {
+    .header-fixed.toolbar-fixed .toolbar{
+        padding:0;
+        top:65px;
+        border-top:1px solid #eff2f5
+    }
+}
+
+@media (max-width:991.98px) {
+    .header-tablet-and-mobile-fixed.toolbar-tablet-and-mobile-fixed .toolbar{
+        padding:0;
+        top:55px;
+        border-top:1px solid #eff2f5
+    }
+}

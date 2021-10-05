@@ -1,10 +1,13 @@
 import "./style.css"
 
-import Footer from "../../components/Template/Footer";
-import Header from "../../components/Template/Header";
-import Navbar from "../../components/Template/Navbar";
+import Footer from "../../components/Template/Footer"
+import Header from "../../components/Template/Header"
+import Navbar from "../../components/Template/Navbar"
+import Navigation from "../../components/Template/Navigation"
+import Datatable from "../../components/Datatable"
 
 function Usuarios() {
+
     return(
         <div>
             {/* <!--begin::Body-->*/}
@@ -22,10 +25,36 @@ function Usuarios() {
                             {/* <!--begin::Header-->*/}
                             <Header />
                             {/* <!--end::Header-->*/}
-                            {/* <!--begin::Content-->*/}
+                          {/* <!--begin::Content-->*/}
                             <div className="content d-flex flex-column flex-column-fluid" id="kt_content">
+                              {/* <!--begin::Toolbar-->*/}
+                                <Navigation />
+                                {/* <!--end::Toolbar-->*/}
+                                {/* <!--begin::Post-->*/}
+                                <div className="post d-flex flex-column-fluid" id="kt_post">
+                                    {/* <!--begin::Container-->*/}
+                                    <div id="kt_content_container" className="container-xxl">
+                                        {/* <!--begin::Table-->*/}
+                                        <div className="card card-flush mt-6">
+                                            {/* <!--begin::Card body-->*/}
+                                            <div className="card-body pt-0">
+                                                {/* <!--begin::Table container-->*/}
+                                                <div className="table-responsive">
+                                                    {/* <!--begin::Table-->*/}
+                                                    <Datatable />
+                                                    {/* <!--end::Table-->*/}
+                                                </div>
+                                              {/* <!--end::Table container-->*/}
+                                            </div>
+                                          {/* <!--end::Card body-->*/}
+                                        </div>
+                                      {/* <!--end::Card-->*/}
+                                    </div>
+                                  {/* <!--end::Container-->*/}
+                                </div>
+                              {/* <!--end::Post-->*/}
                             </div>
-                            {/* <!--end::Content-->*/}
+                          {/* <!--end::Content-->*/}
                             {/* <!--begin::Footer-->*/}
                             <Footer />
                             {/* <!--end::Footer-->*/}
@@ -1461,10 +1490,10 @@ function Usuarios() {
                                             {/* <!--end::Details-->*/}
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
-                                                <select defaultValue={'DEFAULT'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1490,9 +1519,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1518,9 +1547,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1546,9 +1575,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1574,9 +1603,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1602,9 +1631,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1630,9 +1659,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1658,9 +1687,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1686,9 +1715,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1714,9 +1743,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1742,9 +1771,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1770,9 +1799,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1798,9 +1827,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1826,9 +1855,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1854,9 +1883,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1882,9 +1911,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -1910,9 +1939,9 @@ function Usuarios() {
                                             {/* <!--begin::Access menu-->*/}
                                             <div className="ms-2 w-100px">
                                                 <select defaultValue={'1'}className="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-                                                    <option defaultValue="1">Guest</option>
-                                                    <option defaultValue="2">Owner</option>
-                                                    <option defaultValue="3">Can Edit</option>
+                                                    <option value="1">Guest</option>
+                                                    <option value="2">Owner</option>
+                                                    <option value="3">Can Edit</option>
                                                 </select>
                                             </div>
                                             {/* <!--end::Access menu-->*/}
@@ -2489,35 +2518,35 @@ function Usuarios() {
                                                                 {/* <!--begin::Col-->*/}
                                                                 <div className="col-6">
                                                                     <select defaultValue={'1'} name="card_expiry_month" className="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Month">
-                                                                        <option defaultValue="1">1</option>
-                                                                        <option defaultValue="2">2</option>
-                                                                        <option defaultValue="3">3</option>
-                                                                        <option defaultValue="4">4</option>
-                                                                        <option defaultValue="5">5</option>
-                                                                        <option defaultValue="6">6</option>
-                                                                        <option defaultValue="7">7</option>
-                                                                        <option defaultValue="8">8</option>
-                                                                        <option defaultValue="9">9</option>
-                                                                        <option defaultValue="10">10</option>
-                                                                        <option defaultValue="11">11</option>
-                                                                        <option defaultValue="12">12</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
                                                                     </select>
                                                                 </div>
                                                                 {/* <!--end::Col-->*/}
                                                                 {/* <!--begin::Col-->*/}
                                                                 <div className="col-6">
                                                                     <select defaultValue={'2021'} name="card_expiry_year" className="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Year">
-                                                                        <option defaultValue="2021">2021</option>
-                                                                        <option defaultValue="2022">2022</option>
-                                                                        <option defaultValue="2023">2023</option>
-                                                                        <option defaultValue="2024">2024</option>
-                                                                        <option defaultValue="2025">2025</option>
-                                                                        <option defaultValue="2026">2026</option>
-                                                                        <option defaultValue="2027">2027</option>
-                                                                        <option defaultValue="2028">2028</option>
-                                                                        <option defaultValue="2029">2029</option>
-                                                                        <option defaultValue="2030">2030</option>
-                                                                        <option defaultValue="2031">2031</option>
+                                                                        <option value="2021">2021</option>
+                                                                        <option value="2022">2022</option>
+                                                                        <option value="2023">2023</option>
+                                                                        <option value="2024">2024</option>
+                                                                        <option value="2025">2025</option>
+                                                                        <option value="2026">2026</option>
+                                                                        <option value="2027">2027</option>
+                                                                        <option value="2028">2028</option>
+                                                                        <option value="2029">2029</option>
+                                                                        <option value="2030">2030</option>
+                                                                        <option value="2031">2031</option>
                                                                     </select>
                                                                 </div>
                                                                 {/* <!--end::Col-->*/}

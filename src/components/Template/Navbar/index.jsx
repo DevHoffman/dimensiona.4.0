@@ -42,7 +42,7 @@ function Navbar() {
                                 <Link to="/Dashboard" className="menu-link active">
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
-                                        <i class="fas fa-chart-line"></i>
+                                        <i className="fas fa-chart-line"></i>
                                         {/* <!--end::Svg Icon-->*/}
                                     </span>
                                     <span className="menu-title">Dashboard</span>
@@ -53,7 +53,7 @@ function Navbar() {
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <span className="svg-icon svg-icon-2">
-                                            <i class="fas fa-users-cog"></i>
+                                            <i className="fas fa-users-cog"></i>
                                         </span>
                                         {/* <!--end::Svg Icon-->*/}
                                     </span>
