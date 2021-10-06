@@ -1,0 +1,17 @@
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.loader {
+    margin: 16px;
+    animation: spin 1s linear infinite;
+    transform: translateZ(0);
+    border-top: 2px solid grey;
+    border-right: 2px solid grey;
+    border-bottom: 2px solid grey;
+    border-left: 4px solid #009ef7;
+    background: transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
