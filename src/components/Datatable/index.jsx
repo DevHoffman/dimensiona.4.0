@@ -4,14 +4,16 @@ import DataTable from 'react-data-table-component'
 import Select from 'react-select'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
+import { confirmAlert } from 'react-confirm-alert' // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import iziToast from 'izitoast'
-import styled, { keyframes } from 'styled-components'
 
 function Datatable() {
     var timer
+    const [nivelAcesso, setNivelAcesso] = useState([])
     const [Data, setData] = useState([])
-    const [Filter, setFilter] = useState([])
+    const [filter, setFilter] = useState([])
     const [pending, setPending] = useState(true)
 
     useEffect(() => {
@@ -20,51 +22,60 @@ function Datatable() {
         .then(response => {
             var resposta = response.data.data
             setData(resposta)
+
+            var niveisAcesso  = []
+            var niveis2 = [];
+            var niveisFinais = []
+
+            resposta.map(item => {
+                return niveisAcesso.push(item.NivelAcesso)
+            })
+
+            niveisAcesso.map(nivel => {
+                if(!niveis2.includes(nivel)){
+                    return niveis2.push(nivel)
+                }
+                else {
+                    return false
+                }
+            })
+
+            niveis2.map(item => {
+                return niveisFinais.push({value: item, label: item})
+            })
+            
+            setNivelAcesso(niveisFinais)
             setFilter(resposta)
             setPending(false)
         })
         .catch(erro => {
-            iziToast.destroy()
             setPending(false)
         })
     }, [])
 
-    var kt_filter_year = [
-        { value: 'All', label: 'All time' },
-        { value: 'thisyear', label: 'This year' },
-        { value: 'thismonth', label: 'This month' },
-        { value: 'lastmonth', label: 'Last month' },
-        { value: 'last90days', label: 'Last 90 days' },
-    ]
+    const paginationComponentOptions = {
+        rowsPerPageText: 'Filas por página',
+        rangeSeparatorText: 'de',
+        selectAllRowsItem: true,
+        selectAllRowsItemText: 'Todos',
+    };
 
-    var kt_filter_orders = [
-        { 
-            value: 'Thyago Hoffman', label: 'Thyago Hoffman',
-        },
-        { 
-            value: 'Teste 1', label: 'Teste 1',
-        },
-    ]
-
-    function logChange(value) {
+    function onChangeSelect(value) {
         setPending(true)
         clearTimeout(timer)
         timer = setTimeout(() => {
             const filtro = value.value
             let result = Data.filter(function (item) {
-                let itemNome = item.Usuario.toLowerCase()
-                let itemEmail = item.Email.toLowerCase()
-                let valorNome = filtro.toLowerCase()
-                let valorEmail = filtro.toLowerCase()
-                return itemNome.indexOf(valorNome) !== -1
-                    || itemEmail.indexOf(valorEmail) !== -1
+                let itemNivelAcesso = item.NivelAcesso.toLowerCase()
+                let valorNivelAcesso = filtro.toLowerCase()
+                return itemNivelAcesso.indexOf(valorNivelAcesso) !== -1
             })
             setFilter(result)
             setPending(false)
         }, 1000)
     }
 
-    function onChangeTale(e) {
+    function onChangeTable(e) {
         setPending(true)
         clearTimeout(timer)
         timer = setTimeout(() => {
@@ -82,36 +93,33 @@ function Datatable() {
         }, 1000)
     }
 
-    const rotate360 = keyframes`
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-        `;
-
-    const Spinner = styled.div`
-        margin: 16px;
-        animation: ${rotate360} 1s linear infinite;
-        transform: translateZ(0);
-        border-top: 2px solid grey;
-        border-right: 2px solid grey;
-        border-bottom: 2px solid grey;
-        border-left: 4px solid #009ef7;
-        background: transparent;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    `;
+    function onClickDetalhes(e) {
+        let id = e.target.dataset.id
+        let usuario = e.target.dataset.usuario
+        console.log(id, usuario)
+        confirmAlert({
+            title: `Olá Usuário ${usuario}`,
+            // message: 'Are you sure to do this.',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => iziToast.success({ title: 'Vlw Tmj' })
+                },
+                {
+                    label: 'No',
+                    onClick: () => iziToast.error({ title: 'Opa' })
+                }
+            ]
+        })
+    }
 
     const CustomLoader = () => (
         <div>
-            <Spinner />
-            <div>Carregando Dados...</div>
+            <div className="loader">
+            </div>
+            Carregando Dados...
         </div>
-    );
+    )
 
     const columns = [
         {
@@ -146,7 +154,7 @@ function Datatable() {
         },
         {
             name: <div className="px-6">Detalhes</div>,
-            selector: row => <Link to={`./Usuarios/detalhes/${row.CodiUsuario}`} className="btn btn-light btn-sm">Detalhes</Link>,
+            selector: row => <button type="button" data-usuario={row.Usuario} data-id={row.CodiUsuario} className="btn btn-light btn-sm" onClick={onClickDetalhes}>Detalhes </button>,
             sortable: true,
             right: true,
         },
@@ -157,30 +165,16 @@ function Datatable() {
             {/* <!--begin::Card toolbar-->*/}
             <div className="card-toolbar my-1 d-flex">
                 {/* <!--begin::Select-->*/}
-                <div className="me-6 my-1">
-                    <Select
-                        id="kt_filter_year"
-                        name="year"
-                        defaultValue="All"
-                        data-control="select2"
-                        data-hide-search="true"
-                        className="w-200px form-select-solid form-select-sm"
-                        options={kt_filter_year}
-                        onChange={logChange}
-                    />
-                </div>
-                {/* <!--end::Select-->*/}
-                {/* <!--begin::Select-->*/}
                 <div className="me-4 my-1">
                     <Select
-                        id="kt_filter_orders"
+                        id="nivelAcesso"
                         name="orders"
-                        defaultValue="All"
                         data-control="select2"
                         data-hide-search="true"
                         className="w-200px form-select-solid form-select-sm"
-                        options={kt_filter_orders}
-                        onChange={logChange}
+                        options={nivelAcesso}
+                        onChange={onChangeSelect}
+                        placeholder="Nível de Acesso"
                     />
                 </div>
                 {/* <!--end::Select-->*/}
@@ -199,7 +193,7 @@ function Datatable() {
                         id="kt_filter_search" 
                         className="form-control form-control-solid form-select-sm w-200px ps-9" 
                         placeholder="Pesquisar" 
-                        onChange={onChangeTale}
+                        onChange={onChangeTable}
                     />
                 </div>
                 {/* <!--end::Search-->*/}
@@ -213,7 +207,7 @@ function Datatable() {
             <DataTable
                 title='Lista de Usuários'
                 columns={columns}
-                data={Filter}
+                data={filter}
                 responsive
                 pagination
                 highlightOnHover
@@ -223,6 +217,7 @@ function Datatable() {
                 subHeaderAlign="right"
                 subHeaderWrap
                 subHeaderComponent={subHeaderComponent}
+                paginationComponentOptions={paginationComponentOptions}
             />
         </div>
     )

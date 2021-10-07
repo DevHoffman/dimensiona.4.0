@@ -37,7 +37,7 @@ function Usuarios() {
                                         {/* <!--begin::Table-->*/}
                                         <div className="card card-flush mt-6">
                                             {/* <!--begin::Card body-->*/}
-                                            <div className="card-body pt-0">
+                                            <div className="card-body py-4">
                                                 {/* <!--begin::Table container-->*/}
                                                 <div className="table-responsive">
                                                     {/* <!--begin::Table-->*/}
