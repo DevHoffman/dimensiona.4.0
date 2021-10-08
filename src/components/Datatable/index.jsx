@@ -5,6 +5,8 @@ import Select from 'react-select'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+import Loader from '../../components/Loader'
+
 import { confirmAlert } from 'react-confirm-alert' // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import iziToast from 'izitoast'
@@ -113,23 +115,32 @@ function Datatable() {
         })
     }
 
-    const CustomLoader = () => (
-        <div>
-            <div className="loader">
-            </div>
-            Carregando Dados...
-        </div>
-    )
+    function onClickCadastrar() {
+        confirmAlert({
+            title: `Cadastrar`,
+            // message: 'Are you sure to do this.',
+            buttons: [
+                {
+                    label: 'Confirmar',
+                    onClick: () => iziToast.success({ title: 'Vlw Tmj' })
+                },
+                {
+                    label: 'Cancelar',
+                    onClick: () => iziToast.error({ title: 'Opa' })
+                }
+            ]
+        })
+    }
 
     const columns = [
         {
             name: 'Nome',
             selector: row =>    <div className="d-flex py-4">
                                     <div className="me-5 position-relative">
-                                        <div className="symbol symbol-35px symbol-circle">
+                                        <div className="symbol symbol-circle">
                                             <span className="symbol-label bg-light-danger text-danger fw-bold">O</span>
                                         </div>
-                                        <div className="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n1 mt-n1"></div>
+                                        <div className="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n2 mt-n2"></div>
                                     </div>
                                     <div className="d-flex flex-column justify-content-center">
                                         <span className="fs-6 text-gray-800">{row.Usuario}</span>
@@ -163,7 +174,10 @@ function Datatable() {
     const subHeaderComponent = (
         <div>
             {/* <!--begin::Card toolbar-->*/}
-            <div className="card-toolbar my-1 d-flex">
+            <div className="card-toolbar my-1 d-flex align-items">
+                {/* <!--begin::Cadastrar-->*/}
+                <button type="button" className="btn btn-sm btn-primary" onClick={onClickCadastrar}>Cadastrar +</button>
+                {/* <!--end::Cadastrar-->*/}
                 {/* <!--begin::Select-->*/}
                 <div className="me-4 my-1">
                     <Select
@@ -212,7 +226,7 @@ function Datatable() {
                 pagination
                 highlightOnHover
                 progressPending={pending}
-                progressComponent={<CustomLoader />}
+                progressComponent={<Loader texto="Carregando Dados..." />}
                 subHeader
                 subHeaderAlign="right"
                 subHeaderWrap

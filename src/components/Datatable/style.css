@@ -2,28 +2,21 @@
     justify-content: flex-end;
 }
 
-.loader {
-    margin: 16px;
-    animation: spin 1s linear infinite;
-    transform: translateZ(0);
-    border-top: 2px solid grey;
-    border-right: 2px solid grey;
-    border-bottom: 2px solid grey;
-    border-left: 4px solid black;
-    background: transparent;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: block;
+.justify-content-center {
+    justify-content: center;
 }
 
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+.align-items {
+    align-items: center;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* #kt_menu_options {} */
+
+.show-custom{
+  position: absolute;
+  right: 2%;
+  top: 100%;
 }
+
+
+

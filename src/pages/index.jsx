@@ -3,6 +3,7 @@ import iziToast from "izitoast"
 
 import "./style.css"
 import logo from '../components/assets/img/logo.svg'
+import Loader from '../components/Loader'
 
 import axios from 'axios'
 import { useForm } from "react-hook-form"
@@ -190,7 +191,7 @@ function Dimensiona() {
                                                 </div>
                                             </div>
                                             <div className="kt-login__actions">
-                                                <button id="kt_login_signin_submit" className="btn btn-pill kt-login__btn-primary botao">Autenticar <div className="loader" /></button>
+                                                <button id="kt_login_signin_submit" className="btn btn-pill kt-login__btn-primary botao">Autenticar <Loader /></button>
                                             </div>
                                             <div className="message">
                                                 

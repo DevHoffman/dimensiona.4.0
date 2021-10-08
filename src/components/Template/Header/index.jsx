@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import './style.css'
 
 function Header() {
-    
+    function onClickExibeOptions(e) {
+        console.log(e)
+        var menu_sub = document.querySelector('#kt_menu_options')
+        menu_sub.classList.toggle('show-custom')
+        menu_sub.classList.toggle('show')
+    }
 
     
     return (
@@ -41,9 +46,9 @@ function Header() {
                                 {/* <!--begin::Menu-->*/}
                                 <div className="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
                                     <div className="menu-item me-lg-1">
-                                        <a className="menu-link active py-3" href="../../demo1/dist/index.html">
+                                        <Link className="menu-link active py-3" to={'./Dashboard'}>
                                             <span className="menu-title">Dashboard</span>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" className="menu-item menu-lg-down-accordion me-lg-1">
                                         <span className="menu-link py-3">
@@ -3163,13 +3168,13 @@ function Header() {
                                 </div>
                                 {/* <!--end::Quick links-->*/}
                                 {/* <!--begin::User-->*/}
-                                <div className="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                                <div className="d-flex align-items-center ms-1 ms-lg-3">
                                     {/* <!--begin::Menu wrapper-->*/}
-                                    <div className="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                                    <div className="cursor-pointer symbol symbol-30px symbol-md-40px" id="kt_header_user_menu_toggle" onClick={onClickExibeOptions} data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                                         <img src="assets/media/avatars/150-26.jpg" alt="user" />
                                     </div>
                                     {/* <!--begin::Menu-->*/}
-                                    <div className="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
+                                    <div className="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true" id="kt_menu_options">
                                         {/* <!--begin::Menu item-->*/}
                                         <div className="menu-item px-3">
                                             <div className="menu-content d-flex align-items-center px-3">
@@ -3191,11 +3196,6 @@ function Header() {
                                         {/* <!--begin::Menu separator-->*/}
                                         <div className="separator my-2"></div>
                                         {/* <!--end::Menu separator-->*/}
-                                        {/* <!--begin::Menu item-->*/}
-                                        <div className="menu-item px-5">
-                                            <a href="../../demo1/dist/account/overview.html" className="menu-link px-5">My Profile</a>
-                                        </div>
-                                        {/* <!--end::Menu item-->*/}
                                         {/* <!--begin::Menu item-->*/}
                                         <div className="menu-item px-5">
                                             <a href="../../demo1/dist/pages/projects/list.html" className="menu-link px-5">
