@@ -27,6 +27,7 @@ function Dimensiona() {
         })
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
         .then(response => {
+            console.log(response)
             window.localStorage.setItem("user_data", response.data)
             var timeout = 3000
             button.style.display = 'none' // Some com o Loader
@@ -37,9 +38,9 @@ function Dimensiona() {
                 transitionOut: 'fadeOut',
                 timeout: timeout,
             })
-            setTimeout(() => { // Redireciona para Dashboard
-                window.location = "/Dashboard"
-            }, timeout)
+            // setTimeout(() => { // Redireciona para Dashboard
+            //     window.location = "/Dashboard"
+            // }, timeout)
             return response
         })
         .catch(error => {

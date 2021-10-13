@@ -10,7 +10,7 @@
     "@fullcalendar/timegrid": "^5.9.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "@popperjs/core": "^2.10.1",
+    "@popperjs/core": "^2.10.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -18,7 +18,7 @@
     "apexcharts": "^3.28.3",
     "axios": "^0.21.4",
     "babel": "^6.23.0",
-    "bootstrap": "^5.1.0",
+    "bootstrap": "^5.1.2",
     "chart.js": "^3.5.1",
     "classnames": "^2.3.1",
     "cors": "^2.8.5",
@@ -35,15 +35,15 @@
     "moment": "^2.29.1",
     "pdfmake": "^0.2.2",
     "primeicons": "^4.1.0",
-    "primereact": "^6.5.1",
+    "primereact": "^6.6.0",
     "react": "^17.0.2",
     "react-apexcharts": "^1.3.9",
     "react-charts": "^2.0.0-beta.7",
     "react-confirm": "^0.1.24",
     "react-confirm-alert": "^2.7.0",
-    "react-data-table-component": "^7.3.1",
+    "react-data-table-component": "^7.4.1",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.15.1",
+    "react-hook-form": "^7.17.2",
     "react-hooks-form": "^2.0.1",
     "react-intl": "^5.20.12",
     "react-intl-hooks": "^1.0.11",
@@ -83,8 +83,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.4",
-    "typescript": "^4.4.2"
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "typescript": "^4.4.3"
   }
 }
