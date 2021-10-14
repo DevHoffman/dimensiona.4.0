@@ -1,15 +1,16 @@
 import './style.css'
 
+import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import Select from 'react-select'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-
-import Loader from '../../components/Loader'
-
 import { confirmAlert } from 'react-confirm-alert' // Import
+import { Link } from "react-router-dom"
+
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import iziToast from 'izitoast'
+
+import Loader from '../../components/Loader'
 
 function Datatable() {
     var timer
@@ -95,26 +96,6 @@ function Datatable() {
         }, 1000)
     }
 
-    function onClickDetalhes(e) {
-        let id = e.target.dataset.id
-        let usuario = e.target.dataset.usuario
-        console.log(id, usuario)
-        confirmAlert({
-            title: `Olá Usuário ${usuario}`,
-            // message: 'Are you sure to do this.',
-            buttons: [
-                {
-                    label: 'Yes',
-                    onClick: () => iziToast.success({ title: 'Vlw Tmj' })
-                },
-                {
-                    label: 'No',
-                    onClick: () => iziToast.error({ title: 'Opa' })
-                }
-            ]
-        })
-    }
-
     function onClickCadastrar() {
         confirmAlert({
             title: `Cadastrar`,
@@ -135,17 +116,17 @@ function Datatable() {
     const columns = [
         {
             name: 'Nome',
-            selector: row =>    <div className="d-flex py-4">
-                                    <div className="me-5 position-relative">
-                                        <div className="symbol symbol-circle">
-                                            <span className="symbol-label bg-light-danger text-danger fw-bold">O</span>
-                                        </div>
-                                        <div className="bg-success position-absolute h-8px w-8px rounded-circle translate-middle start-100 top-100 ms-n2 mt-n2"></div>
-                                    </div>
-                                    <div className="d-flex flex-column justify-content-center">
-                                        <span className="fs-6 text-gray-800">{row.Usuario}</span>
-                                    </div>
-                                </div>,
+            // selector: row =>    <div className="d-flex py-4">
+            //                         <div className="me-5 position-relative wmin-50px">
+            //                             <div className="symbol symbol-circle symbol-50px">
+            //                                 <span className="symbol-label bg-light-danger text-danger fw-bold">O</span>
+            //                             </div>
+            //                         </div>
+            //                         <div className="d-flex flex-column justify-content-center w-200px">
+            //                             <span className="fs-6 text-gray-800">{row.Usuario}</span>
+            //                         </div>
+            //                     </div>,
+            selector: row => row.Usuario,
             sortable: true,
         },
         {
@@ -161,12 +142,10 @@ function Datatable() {
         {
             name: 'Nivel de Acesso',
             selector: row => row.NivelAcesso,
-            sortable: true,
         },
         {
             name: <div className="px-6">Detalhes</div>,
-            selector: row => <button type="button" data-usuario={row.Usuario} data-id={row.CodiUsuario} className="btn btn-light btn-sm" onClick={onClickDetalhes}>Detalhes </button>,
-            sortable: true,
+            selector: row => <Link to={`./Usuarios/Detalhes/${row.CodiUsuario}`} className="btn btn-primary btn-sm">Detalhes </Link>,
             right: true,
         },
     ]

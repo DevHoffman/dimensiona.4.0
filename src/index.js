@@ -8,6 +8,7 @@ import './style-global.css'
 import Dimensiona from './pages'
 import Dashboard from "./pages/Dashboard"
 import Usuarios from './pages/Usuarios'
+import Detalhes from './pages/Usuarios/Detalhes'
 // import Dashboard_Modelo from "./pages/Dashboard_Modelo"
 
 window.addEventListener("load", async function (event) { // Preloader Página Inteira
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route exact path="/" component={Dimensiona} />
       <Route exact path="/Dashboard" component={Dashboard} />
       <Route exact path="/Usuarios" component={Usuarios} />
+      <Route exact path="/Usuarios/Detalhes" component={Detalhes} />
       {/* <Route exact path="/Dashboard_Modelo" component={Dashboard_Modelo} /> */}
     </Router>
   </React.StrictMode>,

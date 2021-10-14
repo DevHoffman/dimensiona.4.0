@@ -5,7 +5,6 @@ function SubMenuOptions(props) {
     const [status, setStatus] = useState(false)
     function onHandleClick() {
         setStatus(!status)
-        console.log(status)
     }
 
     return(
@@ -27,7 +26,8 @@ function SubMenuOptions(props) {
                         {/* <!--begin::Username-->*/}
                         <div className="d-flex flex-column">
                             <div className="fw-bolder d-flex align-items-center fs-5">Max Smith
-                                <span className="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
+                                <span className="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
+                            </div>
                             <a href="#nada" className="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
                         </div>
                         {/* <!--end::Username-->*/}
@@ -150,7 +150,9 @@ function SubMenuOptions(props) {
                             <a href="../../demo1/dist/account/settings.html" className="menu-link d-flex px-5">
                                 <span className="symbol symbol-20px me-4">
                                     <img className="rounded-1" src="assets/media/flags/france.svg" alt="" />
-                                </span>French</a>
+                                </span>
+                                French
+                            </a>
                         </div>
                         {/* <!--end::Menu item-->*/}
                     </div>
@@ -159,7 +161,7 @@ function SubMenuOptions(props) {
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu item-->*/}
                 <div className="menu-item px-5 my-1">
-                    <a href="../../demo1/dist/account/settings.html" className="menu-link px-5">Account Settings</a>
+                    <Link to="./Configurações" className="menu-link px-5">Configurações</Link>
                 </div>
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu item-->*/}
