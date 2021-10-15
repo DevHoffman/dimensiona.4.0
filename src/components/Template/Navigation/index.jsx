@@ -22,7 +22,7 @@ function Navigation() {
                             <ul className="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
                                 {/* <!--begin::Item-->*/}
                                 <li className="breadcrumb-item text-muted">
-                                    <Link to="./Dashboard" className="text-muted text-hover-primary">Home</Link>
+                                    <Link to="./" className="text-muted text-hover-primary">Home</Link>
                                 </li>
                                 {/* <!--end::Item-->*/}
                                 {/* <!--begin::Item-->*/}

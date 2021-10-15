@@ -9,7 +9,7 @@ function Navbar() {
                 {/* <!--begin::Brand-->*/}
                 <div className="aside-logo flex-column-auto" id="kt_aside_logo">
                     {/* <!--begin::Logo-->*/}
-                    <Link to="/Dashboard" title="Redireciona para Home">
+                    <Link to="/" title="Redireciona para Home">
                         <img alt="Logo" src="/assets/media/logos/logo-1-dark.svg" className="h-25px logo" />
                     </Link>
                     {/* <!--end::Logo-->*/}
@@ -39,7 +39,7 @@ function Navbar() {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <Link to="/Dashboard" className="menu-link active">
+                                <Link to="/" className="menu-link active">
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <i className="fas fa-chart-line"></i>
@@ -68,7 +68,7 @@ function Navbar() {
                 {/* <!--end::Aside menu-->*/}
                 {/* <!--begin::Footer-->*/}
                 <div className="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-                    <Link to="/Dashboard" className="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
+                    <Link to="/" className="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
                         <span className="btn-label">Botoes a fazer aqui</span>
                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->*/}
                         <span className="svg-icon btn-icon svg-icon-2">

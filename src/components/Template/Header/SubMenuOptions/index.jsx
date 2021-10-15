@@ -1,38 +1,41 @@
-import { useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 
-function SubMenuOptions(props) {
-    const [status, setStatus] = useState(false)
-    function onHandleClick() {
-        setStatus(!status)
+function SubMenuOptions() {
+
+    let Dados = []
+    let NomeUsuario = ''
+    Dados = localStorage.getItem('user_data')
+    Dados = JSON.parse(Dados) // Transforma em objetos acessíveis
+
+    function separarPalavras(stringToSplit, separator) {
+        var arrayOfStrings = stringToSplit.split(separator)
+        return arrayOfStrings[0]
     }
 
-    return(
-        <div onClick={onHandleClick}> 
+    NomeUsuario = Dados.Usuario
+    NomeUsuario = separarPalavras(NomeUsuario, ' ')
 
-            {/* <!--begin::Menu-->*/}
-            <div className={
-                   status ? "menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px show show-custom" 
-                    : "menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
-                } data-kt-menu="true" id="kt_menu_options" >
+    return(
+        <div>
+            <div className="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true" id="kt_menu_options">
                 {/* <!--begin::Menu item-->*/}
-                <div className="menu-item px-3" >
+                <div className="menu-item px-3">
                     <div className="menu-content d-flex align-items-center px-3">
                         {/* <!--begin::Avatar-->*/}
                         <div className="symbol symbol-50px me-5">
-                            <img alt="Logo" src="assets/media/avatars/150-26.jpg" />
+                            <img alt="Logo" src={Dados.Foto} />
                         </div>
                         {/* <!--end::Avatar-->*/}
                         {/* <!--begin::Username-->*/}
                         <div className="d-flex flex-column">
-                            <div className="fw-bolder d-flex align-items-center fs-5">Max Smith
-                                <span className="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
-                            </div>
-                            <a href="#nada" className="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                            <div className="fw-bolder d-flex align-items-center fs-5">{NomeUsuario}
+                                <span className="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
+                            <a href="#nada" className="fw-bold text-muted text-hover-primary fs-7">{Dados.Email}</a>
                         </div>
                         {/* <!--end::Username-->*/}
                     </div>
-                </div >
+                </div>
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu separator-->*/}
                 <div className="separator my-2"></div>
@@ -95,7 +98,7 @@ function SubMenuOptions(props) {
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu item-->*/}
                 <div className="menu-item px-5">
-                    <a href="../../demo1/dist/account/statements.html" className="menu-link px-5">My Statements</a>
+                    <Link to="/Perfil" className="menu-link px-5">Meu Perfil</Link>
                 </div>
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu separator-->*/}
@@ -150,9 +153,7 @@ function SubMenuOptions(props) {
                             <a href="../../demo1/dist/account/settings.html" className="menu-link d-flex px-5">
                                 <span className="symbol symbol-20px me-4">
                                     <img className="rounded-1" src="assets/media/flags/france.svg" alt="" />
-                                </span>
-                                French
-                            </a>
+                                </span>French</a>
                         </div>
                         {/* <!--end::Menu item-->*/}
                     </div>
@@ -161,12 +162,12 @@ function SubMenuOptions(props) {
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu item-->*/}
                 <div className="menu-item px-5 my-1">
-                    <Link to="./Configurações" className="menu-link px-5">Configurações</Link>
+                    <Link to="/Configuracoes" className="menu-link px-5">Configurações</Link>
                 </div>
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu item-->*/}
                 <div className="menu-item px-5">
-                    <Link to="./" className="menu-link px-5">Log Out</Link>
+                    <Link to="/Login" className="menu-link px-5">Log Out</Link>
                 </div>
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu separator-->*/}
@@ -184,7 +185,6 @@ function SubMenuOptions(props) {
                 </div>
                 {/* <!--end::Menu item-->*/}
             </div>
-            {/* <!--end::Menu-->*/ }
         </div>
     )
 }

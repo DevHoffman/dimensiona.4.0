@@ -7,8 +7,8 @@ import axios from 'axios'
 import { confirmAlert } from 'react-confirm-alert' // Import
 import { Link } from "react-router-dom"
 
-import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
-import iziToast from 'izitoast'
+// import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+// import iziToast from 'izitoast'
 
 import Loader from '../../components/Loader'
 
@@ -100,16 +100,16 @@ function Datatable() {
         confirmAlert({
             title: `Cadastrar`,
             // message: 'Are you sure to do this.',
-            buttons: [
-                {
-                    label: 'Confirmar',
-                    onClick: () => iziToast.success({ title: 'Vlw Tmj' })
-                },
-                {
-                    label: 'Cancelar',
-                    onClick: () => iziToast.error({ title: 'Opa' })
-                }
-            ]
+        //     buttons: [
+        //         {
+        //             label: 'Confirmar',
+        //             onClick: () => iziToast.success({ title: 'Vlw Tmj' })
+        //         },
+        //         {
+        //             label: 'Cancelar',
+        //             onClick: () => iziToast.error({ title: 'Opa' })
+        //         }
+        //     ]
         })
     }
 

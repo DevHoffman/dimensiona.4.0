@@ -10,7 +10,8 @@ import Footer from '../../components/Template/Footer'
 
 import '@fortawesome/fontawesome-free/js/all'
 
-function Dashboard(){
+
+function Dashboard() {
 
     useEffect(() => {
     }, [])
@@ -5965,4 +5966,4 @@ function Dashboard(){
     )
 }
 
-export default Dashboard;
+export default Dashboard
