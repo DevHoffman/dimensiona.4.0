@@ -167,7 +167,7 @@ function SubMenuOptions() {
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu item-->*/}
                 <div className="menu-item px-5">
-                    <Link to="/Login" className="menu-link px-5">Log Out</Link>
+                    <Link to="/Sair" className="menu-link px-5">Log Out</Link>
                 </div>
                 {/* <!--end::Menu item-->*/}
                 {/* <!--begin::Menu separator-->*/}

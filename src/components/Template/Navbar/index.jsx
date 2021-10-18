@@ -10,7 +10,8 @@ function Navbar() {
                 <div className="aside-logo flex-column-auto" id="kt_aside_logo">
                     {/* <!--begin::Logo-->*/}
                     <Link to="/" title="Redireciona para Home">
-                        <img alt="Logo" src="/assets/media/logos/logo-1-dark.svg" className="h-25px logo" />
+                        {/* <img alt="Logo" src="/assets/media/logos/logo-1-dark.svg" className="h-25px logo" /> */}
+                        <h1 className="logo-color-light">Dimensiona</h1>
                     </Link>
                     {/* <!--end::Logo-->*/}
                     {/* <!--begin::Aside toggler-->*/}

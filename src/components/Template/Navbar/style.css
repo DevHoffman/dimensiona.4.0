@@ -91,6 +91,11 @@ transition:fill .3s ease
 background-color:#fff
 }
 
+.logo-color-light{
+    color: white;
+    margin: 0;
+}
+
 @media (min-width:992px){
     .aside{
         width:265px;

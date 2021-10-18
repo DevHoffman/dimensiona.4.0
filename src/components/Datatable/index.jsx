@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import Select from 'react-select'
 import axios from 'axios'
-import { confirmAlert } from 'react-confirm-alert' // Import
-import { Link } from "react-router-dom"
+// import { confirmAlert } from 'react-confirm-alert' // Import
+// import { Link } from "react-router-dom"
 
 // import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
-// import iziToast from 'izitoast'
+import iziToast from 'izitoast'
 
 import Loader from '../../components/Loader'
 
@@ -23,6 +23,7 @@ function Datatable() {
         setPending(true)
         axios.get('http://localhost/crud_codeigniter/usuarios/datatables')
         .then(response => {
+            iziToast.destroy()
             var resposta = response.data.data
             setData(resposta)
 
@@ -52,6 +53,7 @@ function Datatable() {
             setPending(false)
         })
         .catch(erro => {
+            iziToast.destroy()
             setPending(false)
         })
     }, [])
@@ -96,22 +98,21 @@ function Datatable() {
         }, 1000)
     }
 
-    function onClickCadastrar() {
-        confirmAlert({
-            title: `Cadastrar`,
-            // message: 'Are you sure to do this.',
-        //     buttons: [
-        //         {
-        //             label: 'Confirmar',
-        //             onClick: () => iziToast.success({ title: 'Vlw Tmj' })
-        //         },
-        //         {
-        //             label: 'Cancelar',
-        //             onClick: () => iziToast.error({ title: 'Opa' })
-        //         }
-        //     ]
-        })
-    }
+    // function onClickCadastrar() {
+    //     confirmAlert({
+    //         title: `Cadastrar`,
+    //         buttons: [
+    //             {
+    //                 label: 'Confirmar',
+    //                 onClick: () => iziToast.success({ title: 'Vlw Tmj' })
+    //             },
+    //             {
+    //                 label: 'Cancelar',
+    //                 onClick: () => iziToast.error({ title: 'Opa' })
+    //             }
+    //         ]
+    //     })
+    // }
 
     const columns = [
         {
@@ -143,11 +144,11 @@ function Datatable() {
             name: 'Nivel de Acesso',
             selector: row => row.NivelAcesso,
         },
-        {
-            name: <div className="px-6">Detalhes</div>,
-            selector: row => <Link to={`./Usuarios/Detalhes/${row.CodiUsuario}`} className="btn btn-primary btn-sm">Detalhes </Link>,
-            right: true,
-        },
+        // {
+        //     name: <div className="px-6">Detalhes</div>,
+        //     selector: row => <Link to={`./Usuarios/Detalhes/${row.CodiUsuario}`} className="btn btn-primary btn-sm">Detalhes </Link>,
+        //     right: true,
+        // },
     ]
 
     const subHeaderComponent = (
@@ -155,7 +156,7 @@ function Datatable() {
             {/* <!--begin::Card toolbar-->*/}
             <div className="card-toolbar my-1 d-flex align-items">
                 {/* <!--begin::Cadastrar-->*/}
-                <button type="button" className="btn btn-sm btn-primary" onClick={onClickCadastrar}>Cadastrar +</button>
+                {/* <button type="button" className="btn btn-sm btn-primary" onClick={onClickCadastrar}>Cadastrar +</button> */}
                 {/* <!--end::Cadastrar-->*/}
                 {/* <!--begin::Select-->*/}
                 <div className="me-4 my-1">
