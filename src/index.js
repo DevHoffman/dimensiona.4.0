@@ -12,7 +12,7 @@ import Usuarios from './pages/Usuarios'
 import Detalhes from './pages/Usuarios/Detalhes'
 import Perfil from './pages/Perfil'
 import Configuracoes from './pages/Configuracoes'
-import Dashboard_Modelo from "./pages/Dashboard_Modelo"
+import Dashboard_Modelo from './pages/Dashboard_Modelo'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,7 +26,7 @@ ReactDOM.render(
         <Route exact path="/Perfil" component={Perfil} />
         <Route exact path="/Configuracoes" component={Configuracoes} />
         <Route exact path="/Dashboard_Modelo" component={Dashboard_Modelo} />
-    </Router>
+    </Router>,
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -3,20 +3,9 @@ import { Link } from "react-router-dom"
 import './style.css'
 import SubMenuOptions from "./SubMenuOptions"
 
-function Header() {
-
-    let Dados = []
-    let NomeUsuario = ''
-    Dados = localStorage.getItem('user_data')
-    Dados = JSON.parse(Dados) // Transforma em objetos acessíveis
-
-    function separarPalavras(stringToSplit, separator) {
-        var arrayOfStrings = stringToSplit.split(separator)
-        return arrayOfStrings[0]
-    }
-
-    NomeUsuario = Dados.Usuario
-    NomeUsuario = separarPalavras(NomeUsuario, ' ')
+function Header(props) {
+    const Dados = JSON.parse(window.localStorage.user_data)
+    // console.log(Dados)
 
     function onClickExibeOptions() {
         var menu_sub = document.querySelector('#kt_menu_options')
@@ -77,7 +66,7 @@ function Header() {
                                 <div className="d-flex align-items-center">
                                     {/* <!--begin::Menu wrapper-->*/}
                                     <div className="btn ">
-                                        <h3 className="fw-bold no-margin">Olá, {NomeUsuario}</h3>
+                                        <h3 className="fw-bold no-margin">Olá, {Dados.Usuario}</h3>
                                     </div>
                                     {/* <!--end::Menu wrapper-->*/}
                                 </div>
@@ -89,7 +78,7 @@ function Header() {
                                         <img src={Dados.Foto} alt="Imagem do Usuário" />
                                     </div>
                                     {/* <!--begin::Menu-->*/}
-                                    <SubMenuOptions />
+                                    <SubMenuOptions dadosUsuario={props} />
                                     {/* <!--end::Menu-->*/}
                                     {/* <!--end::Menu wrapper-->*/}
                                 </div>

@@ -5,9 +5,7 @@ function Sair() {
 
     localStorage.clear()
     history.push("/Login")
-    return(
-        <div></div>
-    )
+    return 1
 }
 
 export default Sair

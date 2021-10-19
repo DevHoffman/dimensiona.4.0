@@ -1,21 +1,17 @@
 import { useHistory } from "react-router-dom"
+import { useForm } from "react-hook-form"
 
 import axios from 'axios'
 import "izitoast/dist/css/iziToast.min.css"
 import iziToast from "izitoast"
 import Loader from "../../Loader"
-import { useState } from "react"
 
 function LoginUsuario() {
     let history = useHistory()
-    const [Login, setLogin] = useState('')
-    const [Senha, setSenha] = useState('')
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
-    async function onSubmitAuth(e) { // Função Autenticar
-        e.preventDefault()
+    const onSubmit = async data => { // Função Autenticar
         var button = document.querySelector('.kt-login__btn-primary .loader')
-        let data = [Login, Senha]
-
 
         axios.interceptors.request.use(function (config) {
             iziToast.destroy()
@@ -27,7 +23,7 @@ function LoginUsuario() {
             return config
         })
         axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
-            .then(response => {
+        .then(response => {
                 window.localStorage.setItem("user_data", JSON.stringify(response.data.sessionData))
                 var timeout = 3000
                 button.style.display = 'none' // Some com o Loader
@@ -39,7 +35,7 @@ function LoginUsuario() {
                     timeout: timeout,
                 })
                 setTimeout(() => { // Redireciona para Dashboard
-                    history.push("/")
+                    history.push("./")
                 }, timeout)
                 return response
             })
@@ -77,13 +73,19 @@ function LoginUsuario() {
                 <div className="kt-login__head">
                     <h3 className="kt-login__title">Entrar no Painel</h3>
                 </div>
-                <form id="login__signin" className="kt-form" onSubmit={onSubmitAuth}>
+                <form id="login__signin" className="kt-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="input-group">
-                        <input className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" value={Login} onChange={(e) => setLogin(e.target.value)} />
+                        {/* <input className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" /> */}
+                        <input className="form-control" placeholder="Login" {...register('login', { required: true, minLength: 3 })} />
                     </div>
+                    {errors.login && errors.login.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
+                    {errors.login && errors.login.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
                     <div className="input-group">
-                        <input className="form-control" type="password" placeholder="Senha" name="senha" value={Senha} onChange={(e) => setSenha(e.target.value)} />
+                        {/* <input className="form-control" type="password" placeholder="Senha" name="senha" /> */}
+                        <input className="form-control" type="password" placeholder="Senha" {...register('senha', { required: true, minLength: 3 })} />
                     </div>
+                    {errors.senha && errors.senha.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
+                    {errors.senha && errors.senha.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
                     <div className="row kt-login__extra">
                         <div className="col">
                             {/* <label className="kt-checkbox">
@@ -96,10 +98,7 @@ function LoginUsuario() {
                         </div>
                     </div>
                     <div className="kt-login__actions">
-                        <button id="kt_login_signin_submit" className="btn btn-pill kt-login__btn-primary botao">Autenticar <Loader /></button>
-                    </div>
-                    <div className="message">
-
+                        <button id="kt_login_signin_submit" type="submit" className="btn btn-pill kt-login__btn-primary botao">Autenticar <Loader /></button>
                     </div>
                 </form>
             </div>

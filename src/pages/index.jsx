@@ -1,11 +1,13 @@
 import './style.css'
 
+import VerificaAuth from '../components/Funcoes/VerificaAuth'
 import Navbar from '../components/Template/Navbar'
 import Header from '../components/Template/Header'
 import Footer from '../components/Template/Footer'
 
 function Dimensiona() {
-
+    VerificaAuth()
+    
     return (
         <div>
             {/* <!--begin::Body-->*/}
@@ -3172,4 +3174,4 @@ function Dimensiona() {
     )
 }
 
-export default Dimensiona;
+export default Dimensiona
