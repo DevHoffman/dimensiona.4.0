@@ -5,9 +5,9 @@ function VerificaAuth() {
     let Dados = []
     if (typeof localStorage.user_data === 'undefined') {
         Dados = {
-            Usuario: 'NomeFiltrado2021',
-            Email: 'Teste@teste.com',
-            Foto: './assets/media/avatars/user.png',
+            Usuario: 'Thyago',
+            Email: 'hoffmandev@outlook.com',
+            Foto: './assets/media/avatars/user-04.jpg',
         }
         Dados = JSON.stringify(Dados)
         window.localStorage.setItem("user_data", Dados)

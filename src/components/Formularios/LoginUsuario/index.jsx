@@ -15,6 +15,7 @@ function LoginUsuario() {
 
         axios.interceptors.request.use(function (config) {
             iziToast.destroy()
+            console.clear()
             button.style.display = 'block' // Exibe o Loader
             iziToast.warning({
                 title: 'Autenticação em andamento',
@@ -22,12 +23,15 @@ function LoginUsuario() {
             })
             return config
         })
-        axios.post('http://localhost/crud_codeigniter/home/autenticate', data)
-        .then(response => {
-                window.localStorage.setItem("user_data", JSON.stringify(response.data.sessionData))
+        // axios.post('http://localhost/crud_codeigniter/home/autenticate', data) // Minha API
+        axios.post('https://vitrinniapi.herokuapp.com/api/auth/login', data) // Usando API do Max
+            .then(response => {
+                window.localStorage.setItem("token", JSON.stringify(response.data.access_token)) // Usando API do Max
+                // window.localStorage.setItem("user_data", JSON.stringify(response.data.sessionData)) // Usando a minha API (Salva os dados do usuario no storage)
                 var timeout = 3000
                 button.style.display = 'none' // Some com o Loader
                 iziToast.destroy()
+                console.clear()
                 iziToast.success({
                     title: 'Usuário Autenticado',
                     position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
@@ -42,6 +46,7 @@ function LoginUsuario() {
             .catch(error => {
                 button.style.display = 'none' // Some com o Loader
                 iziToast.destroy()
+                console.clear()
                 if (error.response.status === 401) { // Erro de Credencial
                     iziToast.error({
                         title: 'Credenciais Inválidas',
@@ -76,16 +81,16 @@ function LoginUsuario() {
                 <form id="login__signin" className="kt-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="input-group">
                         {/* <input className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" /> */}
-                        <input className="form-control" placeholder="Login" {...register('login', { required: true, minLength: 3 })} />
+                        <input className="form-control" placeholder="email" {...register('email', { required: true, minLength: 3 })} />
                     </div>
-                    {errors.login && errors.login.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
-                    {errors.login && errors.login.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
+                    {errors.email && errors.email.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
+                    {errors.email && errors.email.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
                     <div className="input-group">
                         {/* <input className="form-control" type="password" placeholder="Senha" name="senha" /> */}
-                        <input className="form-control" type="password" placeholder="Senha" {...register('senha', { required: true, minLength: 3 })} />
+                        <input className="form-control" type="password" placeholder="Senha" {...register('password', { required: true, minLength: 3 })} />
                     </div>
-                    {errors.senha && errors.senha.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
-                    {errors.senha && errors.senha.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
+                    {errors.password && errors.password.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
+                    {errors.password && errors.password.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
                     <div className="row kt-login__extra">
                         <div className="col">
                             {/* <label className="kt-checkbox">

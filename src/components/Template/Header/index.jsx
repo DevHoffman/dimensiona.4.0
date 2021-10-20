@@ -4,8 +4,7 @@ import './style.css'
 import SubMenuOptions from "./SubMenuOptions"
 
 function Header(props) {
-    const Dados = JSON.parse(window.localStorage.user_data)
-    // console.log(Dados)
+    // const Dados = JSON.parse(window.localStorage.user_data) // Caso tenha API
 
     function onClickExibeOptions() {
         var menu_sub = document.querySelector('#kt_menu_options')
@@ -35,7 +34,7 @@ function Header(props) {
                     {/* <!--begin::Mobile logo-->*/}
                     <div className="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="../../demo1/dist/index.html" className="d-lg-none">
-                            <img alt="Logo" src={Dados.Foto} className="h-30px" />
+                            <img alt="Logo" src="./assets/media/avatars/user-04.jpg" className="h-30px" />
                         </a>
                     </div>
                     {/* <!--end::Mobile logo-->*/}
@@ -66,7 +65,7 @@ function Header(props) {
                                 <div className="d-flex align-items-center">
                                     {/* <!--begin::Menu wrapper-->*/}
                                     <div className="btn ">
-                                        <h3 className="fw-bold no-margin">Olá, {Dados.Usuario}</h3>
+                                        <h3 className="fw-bold no-margin">Olá, Thyago</h3>
                                     </div>
                                     {/* <!--end::Menu wrapper-->*/}
                                 </div>
@@ -75,10 +74,10 @@ function Header(props) {
                                 <div className="d-flex align-items-center ms-1 ms-lg-3">
                                     {/* <!--begin::Menu wrapper-->*/}
                                     <div className="cursor-pointer symbol symbol-30px symbol-md-40px">
-                                        <img src={Dados.Foto} alt="Imagem do Usuário" />
+                                        <img src="./assets/media/avatars/user-04.jpg" alt="Imagem do Usuário" />
                                     </div>
                                     {/* <!--begin::Menu-->*/}
-                                    <SubMenuOptions dadosUsuario={props} />
+                                    <SubMenuOptions />
                                     {/* <!--end::Menu-->*/}
                                     {/* <!--end::Menu wrapper-->*/}
                                 </div>

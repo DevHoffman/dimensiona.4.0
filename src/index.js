@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 import './style-global.css'
 
 import Login from './pages/Login'
-import Sair from './pages/Sair'
+// import Sair from './pages/Sair'
 import Dimensiona from './pages'
 import Dashboard from "./pages/Dashboard"
 import Usuarios from './pages/Usuarios'
@@ -19,7 +19,7 @@ ReactDOM.render(
     <Router>
         <Route exact path="/" component={Dimensiona} />
         <Route exact path="/Login" component={Login} />
-        <Route exact path="/Sair" component={Sair} />
+        {/* <Route exact path="/Sair" component={Sair} /> */}
         <Route exact path="/Dashboard" component={Dashboard} />
         <Route exact path="/Usuarios" component={Usuarios} />
         <Route exact path="/Usuarios/Detalhes" component={Detalhes} />

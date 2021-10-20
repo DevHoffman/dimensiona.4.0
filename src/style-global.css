@@ -80405,3 +80405,62 @@ justify-content:flex-start
 .no-margin {
     margin: 0;
 }
+
+
+/* CSS CONTRASTE */
+.contrast img, .contrast img, .contrast iframe {
+    filter: grayscale(100%) contrast(120%);
+}
+
+.contrast a {
+    color: white !important;
+}
+
+.contrast, .contrast nav, .contrast div, .contrast li, .contrast ol, .contrast header, .contrast footer, .contrast section, .contrast main, .contrast aside, .contrast article, .contrast #bloco-menu ul, .contrast button, .contrast input[type=button], .contrast input[type=reset], .contrast input[type=submit] {
+    background: #121817 !important;
+    color: white !important;
+}
+
+.contrast h1, .contrast h2, .contrast h3, .contrast h4, .contrast h5, .contrast h6, .contrast p, .contrast label, .contrast strong, .contrast em, .contrast cite, .contrast q, .contrast i, .contrast u, .contrast span {
+    color: white !important;
+}
+
+.contrast input[type=button], .contrast input[type=reset], .contrast input[type=submit], .contrast #react-select-3-input {
+    border: none !important;
+}
+
+.contrast input[type=text], .contrast input[type=password], .contrast input[type=url], .contrast input[type=search], .contrast input[type=email], .contrast input[type=tel], .contrast input[type=date], .contrast input[type=month], .contrast input[type=week], .contrast input[type=datetime], .contrast input[type=datetime-local], .contrast textarea, .contrast input[type=number] {
+    background: #121817 !important;
+    border: 1px solid white !important;
+    color: white !important;
+}
+
+.contrast .btn-light {
+    color: #7e8299 !important;
+}
+
+.contrast .btn-light:hover,
+.contrast .btn-light:focus,
+.contrast .btn-light:active{
+    color: white !important;
+}
+
+.contrast button.btn,
+.contrast .back-cinza,
+.contrast .acesso-rapido-item{
+    border: 2px solid white !important;
+}
+
+.contrast .btn-default,
+.contrast .back-cinza,
+.contrast .botao-noticia {
+    background-color: transparent;
+}
+
+.contrast .botao-noticia{
+    border-color: white !important;
+}
+
+.contrast .item-play svg{
+    color: #121817;
+}
