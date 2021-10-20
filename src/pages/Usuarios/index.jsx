@@ -25,36 +25,36 @@ function Usuarios() {
                             {/* <!--begin::Header-->*/}
                             <Header />
                             {/* <!--end::Header-->*/}
-                          {/* <!--begin::Content-->*/}
-                            <div className="content d-flex flex-column flex-column-fluid" id="kt_content">
-                              {/* <!--begin::Toolbar-->*/}
-                                <Navigation />
-                                {/* <!--end::Toolbar-->*/}
-                                {/* <!--begin::Post-->*/}
-                                <div className="post d-flex flex-column-fluid" id="kt_post">
-                                    {/* <!--begin::Container-->*/}
-                                    <div id="kt_content_container" className="container-xxl">
-                                        {/* <!--begin::Table-->*/}
-                                        <div className="card card-flush mt-6">
-                                            {/* <!--begin::Card body-->*/}
-                                            <div className="card-body py-4">
-                                                {/* <!--begin::Table container-->*/}
-                                                <div className="table-responsive">
-                                                    {/* <!--begin::Table-->*/}
-                                                    <Datatable />
-                                                    {/* <!--end::Table-->*/}
+                            {/* <!--begin::Content-->*/}
+                                <div className="content d-flex flex-column flex-column-fluid" id="kt_content">
+                                    {/* <!--begin::Toolbar-->*/}
+                                    <Navigation />
+                                    {/* <!--end::Toolbar-->*/}
+                                    {/* <!--begin::Post-->*/}
+                                    <div className="post d-flex flex-column-fluid" id="kt_post">
+                                        {/* <!--begin::Container-->*/}
+                                        <div id="kt_content_container" className="container-xxl">
+                                            {/* <!--begin::Table-->*/}
+                                            <div className="card card-flush mt-6">
+                                                {/* <!--begin::Card body-->*/}
+                                                <div className="card-body py-4">
+                                                    {/* <!--begin::Table container-->*/}
+                                                    <div className="table-responsive">
+                                                        {/* <!--begin::Table-->*/}
+                                                        <Datatable />
+                                                        {/* <!--end::Table-->*/}
+                                                    </div>
+                                                {/* <!--end::Table container-->*/}
                                                 </div>
-                                              {/* <!--end::Table container-->*/}
+                                            {/* <!--end::Card body-->*/}
                                             </div>
-                                          {/* <!--end::Card body-->*/}
+                                        {/* <!--end::Card-->*/}
                                         </div>
-                                      {/* <!--end::Card-->*/}
+                                    {/* <!--end::Container-->*/}
                                     </div>
-                                  {/* <!--end::Container-->*/}
+                                {/* <!--end::Post-->*/}
                                 </div>
-                              {/* <!--end::Post-->*/}
-                            </div>
-                          {/* <!--end::Content-->*/}
+                            {/* <!--end::Content-->*/}
                             {/* <!--begin::Footer-->*/}
                             <Footer />
                             {/* <!--end::Footer-->*/}
