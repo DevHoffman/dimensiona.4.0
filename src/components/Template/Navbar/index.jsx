@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
+    const url = window.location.pathname;
+    const segment = url.substring(url.lastIndexOf('/') + 1)
+
     return(
         <div>
             <div id="kt_aside" className="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
@@ -40,7 +43,7 @@ function Navbar() {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <Link to="/" className="menu-link active">
+                                <Link to="/" className={segment === '' ? 'menu-link active' : 'menu-link' }>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <i className="fas fa-chart-line"></i>
@@ -50,7 +53,7 @@ function Navbar() {
                                 </Link>
                             </div>
                             <div className="menu-item">
-                                <Link to="/Usuarios" className="menu-link">
+                                <Link to="/Usuarios" className={segment === 'Usuarios' ? 'menu-link active' : 'menu-link' }>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <span className="svg-icon svg-icon-2">

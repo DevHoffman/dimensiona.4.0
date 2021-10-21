@@ -24,6 +24,7 @@ function Datatable() {
         axios.get('http://localhost/crud_codeigniter/usuarios/datatables')
         .then(response => {
             iziToast.destroy()
+            console.clear()
             var resposta = response.data.data
             setData(resposta)
 
@@ -54,6 +55,7 @@ function Datatable() {
         })
         .catch(erro => {
             iziToast.destroy()
+            console.clear()
             setPending(false)
         })
     }, [])

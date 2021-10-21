@@ -201,8 +201,8 @@ function SubMenuOptions() {
                 {/* <!--begin::Menu item-->*/}
                 <div className="menu-item px-5">
                     <div className="menu-content px-5">
-                        <label className="form-check form-switch form-check-custom form-check-solid pulse pulse-success" onClick={toggleContrast}>
-                            <input className="form-check-input w-30px h-20px" type="checkbox" defaultValue="1" name="mode" id="kt_user_menu_dark_mode_toggle" />
+                        <label className="form-check form-switch form-check-custom form-check-solid pulse pulse-success">
+                            <input className="form-check-input w-30px h-20px" type="checkbox" defaultValue="1" name="mode" id="kt_user_menu_dark_mode_toggle" onClick={toggleContrast} />
                             <span className="pulse-ring ms-n1"></span>
                             <span className="form-check-label text-gray-600 fs-7">Dark Mode</span>
                         </label>
