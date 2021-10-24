@@ -4,9 +4,47 @@ import Footer from "../../components/Template/Footer"
 import Header from "../../components/Template/Header"
 import Navbar from "../../components/Template/Navbar"
 import Navigation from "../../components/Template/Navigation"
-import Datatable from "../../components/Datatable"
+import Datatable2 from "../../components/Datatables2"
 
 function Usuarios() {
+
+
+    const columns = [
+        {
+            name: 'Nome',
+            selector: row => row.Usuario,
+            sortable: true,
+        },
+        {
+            name: 'Login',
+            selector: row => row.Login,
+            sortable: true,
+        },
+        {
+            name: 'Email',
+            selector: row => row.Email,
+            sortable: true,
+        },
+        {
+            name: 'Nivel de Acesso',
+            selector: row => row.NivelAcesso,
+        },
+    ]
+
+    const data = [
+        {
+            Usuario: 'Thyago Hoffman',
+            Email: 'thoffman1698@gmail.com',
+            Login: 'hoffman',
+            NivelAcesso: 'Administrador',
+        },
+        {
+            Usuario: 'Administrador',
+            Email: 'teste@teste.com',
+            Login: 'teste',
+            NivelAcesso: 'Usuario',
+        },
+    ]
 
     return(
         <div>
@@ -41,7 +79,12 @@ function Usuarios() {
                                                     {/* <!--begin::Table container-->*/}
                                                     <div className="table-responsive">
                                                         {/* <!--begin::Table-->*/}
-                                                        <Datatable />
+                                                        <Datatable2 
+                                                            nomeTabela='Lista de Usuários' 
+                                                            columns={columns}
+                                                            data={data}
+                                                            placeholderSelect={"Nível de Acesso"}
+                                                        />
                                                         {/* <!--end::Table-->*/}
                                                     </div>
                                                 {/* <!--end::Table container-->*/}

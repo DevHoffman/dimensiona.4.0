@@ -53,6 +53,25 @@ function Navbar() {
                                 </Link>
                             </div>
                             <div className="menu-item">
+                                <Link to="/" className={segment === 'TempoReal' ? 'menu-link active' : 'menu-link' }>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <i className="fas fa-hourglass-half"></i>
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Tempo Real</span>
+                                </Link>
+                            </div>
+                        </div>
+                        {/* <!--end::Menu-->*/}
+                        {/* <!--begin::Menu-->*/}
+                        <div className="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+                            <div className="menu-item">
+                                <div className="menu-content pb-2">
+                                    <span className="menu-section text-muted text-uppercase fs-8 ls-1">Configurações</span>
+                                </div>
+                            </div>
+                            <div className="menu-item">
                                 <Link to="/Usuarios" className={segment === 'Usuarios' ? 'menu-link active' : 'menu-link' }>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
@@ -70,19 +89,6 @@ function Navbar() {
                     {/* <!--end::Aside Menu-->*/}
                 </div>
                 {/* <!--end::Aside menu-->*/}
-                {/* <!--begin::Footer-->*/}
-                {/* <div className="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-                    <Link to="/" className="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
-                        <span className="btn-label">Botoes a fazer aqui</span>
-                        <span className="svg-icon btn-icon svg-icon-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM15 17C15 16.4 14.6 16 14 16H8C7.4 16 7 16.4 7 17C7 17.6 7.4 18 8 18H14C14.6 18 15 17.6 15 17ZM17 12C17 11.4 16.6 11 16 11H8C7.4 11 7 11.4 7 12C7 12.6 7.4 13 8 13H16C16.6 13 17 12.6 17 12ZM17 7C17 6.4 16.6 6 16 6H8C7.4 6 7 6.4 7 7C7 7.6 7.4 8 8 8H16C16.6 8 17 7.6 17 7Z" fill="black" />
-                                <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
-                            </svg>
-                        </span>
-                    </Link>
-                </div> */}
-                {/* <!--end::Footer-->*/}
             </div>
         </div>
     )

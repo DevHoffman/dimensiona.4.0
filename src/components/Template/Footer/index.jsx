@@ -1,5 +1,7 @@
 import './style.css'
 
+import { Link } from "react-router-dom"
+
 function Footer() {
     return(
         <div>
@@ -9,19 +11,16 @@ function Footer() {
                     {/* <!--begin::Copyright-->*/}
                     <div className="text-dark order-2 order-md-1">
                         <span className="text-muted fw-bold me-1">2021©</span>
-                        <a href="https://keenthemes.com" target="_blank" className="text-gray-800 text-hover-primary" rel="noreferrer">Keenthemes</a>
+                        <a href="https://keenthemes.com" target="_blank" className="text-gray-800 text-hover-primary" rel="noreferrer">Hoffman</a>
                     </div>
                     {/* <!--end::Copyright-->*/}
                     {/* <!--begin::Menu-->*/}
                     <ul className="menu menu-gray-600 menu-hover-primary fw-bold order-1">
                         <li className="menu-item">
-                            <a href="https://keenthemes.com" target="_blank" className="menu-link px-2" rel="noreferrer">About</a>
+                            <Link to="#nada" target="_blank" className="menu-link px-2" rel="noreferrer">Sobre</Link>
                         </li>
                         <li className="menu-item">
-                            <a href="https://keenthemes.com/support" target="_blank" className="menu-link px-2" rel="noreferrer">Support</a>
-                        </li>
-                        <li className="menu-item">
-                            <a href="https://1.envato.market/EA4JP" target="_blank" className="menu-link px-2" rel="noreferrer">Purchase</a>
+                            <Link to="#nada" target="_blank" className="menu-link px-2" rel="noreferrer">Suporte</Link>
                         </li>
                     </ul>
                     {/* <!--end::Menu-->*/}

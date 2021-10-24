@@ -153,6 +153,21 @@ function Datatable() {
         // },
     ]
 
+    // const data = [
+    //     {
+    //         Usuario: 'Thyago Hoffman',
+    //         Email: 'thoffman1698@gmail.com',
+    //         Login: 'hoffman',
+    //         NivelAcesso: 'Administrador',
+    //     },
+    //     {
+    //         Usuario: 'Administrador',
+    //         Email: 'teste@teste.com',
+    //         Login: 'teste',
+    //         NivelAcesso: 'Usuario',
+    //     },
+    // ]
+
     const subHeaderComponent = (
         <div>
             {/* <!--begin::Card toolbar-->*/}
