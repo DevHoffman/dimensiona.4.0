@@ -10,7 +10,7 @@ import axios from 'axios'
 // import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import iziToast from 'izitoast'
 
-import Loader from '../../components/Loader'
+import Loader from '../Loader'
 
 function Datatable() {
     var timer

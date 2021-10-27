@@ -3,15 +3,32 @@ import './style.css'
 import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import Select from 'react-select'
-import Loader from '../../components/Loader'
+import Loader from '../Loader'
 
-function Datatable2(props) {
-    // var timer
+function Datatable(props) {
+    var timer
     const [pending, setPending] = useState(true)
+    const [Data, setData] = useState(props.data)
 
     useEffect(() => {
         setPending(false)
     }, [])
+
+    function onChangeSelect(value) {
+        const filtroData = props.data
+        setPending(true)
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            const filtro = value.value
+            let result = filtroData.filter(function (item) {
+                let itemNivelAcesso = item.NivelAcesso.toLowerCase()
+                let valorNivelAcesso = filtro.toLowerCase()
+                return itemNivelAcesso.indexOf(valorNivelAcesso) !== -1
+            })
+            setData(result)
+            setPending(false)
+        }, 1000)
+    }
 
     const subHeaderComponent = (
         <div>
@@ -23,13 +40,9 @@ function Datatable2(props) {
                 {/* <!--begin::Select-->*/}
                 <div className="me-4 my-1">
                     <Select
-                        id="nivelAcesso"
-                        name="orders"
-                        data-control="select2"
-                        data-hide-search="true"
                         className="w-200px form-select-solid form-select-sm"
-                        // options={nivelAcesso}
-                        // onChange={onChangeSelect}
+                        options={props.dataSelect}
+                        onChange={onChangeSelect}
                         placeholder={props.placeholderSelect}
                     />
                 </div>
@@ -65,15 +78,12 @@ function Datatable2(props) {
         selectAllRowsItemText: 'Todos',
     };
 
-
-
-
     return(
         <div>
             <DataTable
                 title={props.nomeTabela}
                 columns={props.columns}
-                data={props.data}
+                data={Data}
                 responsive
                 pagination
                 highlightOnHover
@@ -89,4 +99,4 @@ function Datatable2(props) {
     )
 }
 
-export default Datatable2
+export default Datatable

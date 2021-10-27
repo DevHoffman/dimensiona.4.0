@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-
 import './style.css'
+
+import Navigation from "../Navigation"
 import SubMenuOptions from "./SubMenuOptions"
 
 function Header(props) {
@@ -39,19 +39,13 @@ function Header(props) {
                     </div>
                     {/* <!--end::Mobile logo-->*/}
                     {/* <!--begin::Wrapper-->*/}
-                    <div className="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+                    <div className="d-flex align-items-center justify-content-between flex-lg-grow-1">
                         {/* <!--begin::Navbar-->*/}
-                        <div className="d-flex align-items-stretch" id="kt_header_nav">
+                        <div className="d-flex" id="kt_header_nav">
                             {/* <!--begin::Menu wrapper-->*/}
-                            <div className="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+                            <div className="header-menu">
                                 {/* <!--begin::Menu-->*/}
-                                <div className="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
-                                    <div className="menu-item me-lg-1">
-                                        <Link className="menu-link active py-3" to={'./'}>
-                                            <span className="menu-title">Dashboard</span>
-                                        </Link>
-                                    </div>
-                                </div>
+                                <Navigation />
                                 {/* <!--end::Menu-->*/}
                             </div>
                             {/* <!--end::Menu wrapper-->*/}
