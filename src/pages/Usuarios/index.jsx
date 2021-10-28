@@ -65,6 +65,10 @@ function Usuarios() {
 
     const dataSelect = [
         {
+            label: 'Todos',
+            value: '',
+        },
+        {
             label: 'Administrador',
             value: 'Administrador',
         },

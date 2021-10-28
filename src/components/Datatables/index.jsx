@@ -9,13 +9,13 @@ function Datatable(props) {
     var timer
     const [pending, setPending] = useState(true)
     const [Data, setData] = useState(props.data)
+    const filtroData = props.data
 
     useEffect(() => {
         setPending(false)
     }, [])
 
     function onChangeSelect(value) {
-        const filtroData = props.data
         setPending(true)
         clearTimeout(timer)
         timer = setTimeout(() => {
@@ -24,6 +24,24 @@ function Datatable(props) {
                 let itemNivelAcesso = item.NivelAcesso.toLowerCase()
                 let valorNivelAcesso = filtro.toLowerCase()
                 return itemNivelAcesso.indexOf(valorNivelAcesso) !== -1
+            })
+            setData(result)
+            setPending(false)
+        }, 1000)
+    }
+
+    function onChangeTable(e) {
+        setPending(true)
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            const filtro = e.target.value
+            let result = filtroData.filter(function (item) {
+                let itemNome = item.Usuario.toLowerCase()
+                let itemEmail = item.Email.toLowerCase()
+                let valorNome = filtro.toLowerCase()
+                let valorEmail = filtro.toLowerCase()
+                return itemNome.indexOf(valorNome) !== -1
+                    || itemEmail.indexOf(valorEmail) !== -1
             })
             setData(result)
             setPending(false)
@@ -62,7 +80,7 @@ function Datatable(props) {
                         id="kt_filter_search"
                         className="form-control form-control-solid form-select-sm w-200px ps-9"
                         placeholder="Pesquisar"
-                        // onChange={onChangeTable}
+                        onChange={onChangeTable}
                     />
                 </div>
                 {/* <!--end::Search-->*/}
@@ -76,7 +94,7 @@ function Datatable(props) {
         rangeSeparatorText: 'de',
         selectAllRowsItem: true,
         selectAllRowsItemText: 'Todos',
-    };
+    }
 
     return(
         <div>

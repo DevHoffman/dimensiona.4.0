@@ -1,12 +1,12 @@
 import './style.css'
 
-// import VerificaAuth from '../components/Funcoes/VerificaAuth' // Verifica autenticação do Usuário
+import VerificaAuth from '../components/Funcoes/VerificaAuth' // Verifica autenticação do Usuário
 import Navbar from '../components/Template/Navbar'
 import Header from '../components/Template/Header'
 import Footer from '../components/Template/Footer'
 
 function Dimensiona() {
-    // VerificaAuth() // Verifica autenticação do Usuário
+    VerificaAuth() // Verifica autenticação do Usuário
     
     return (
         <div>
