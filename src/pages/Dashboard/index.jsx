@@ -2,13 +2,6 @@ import './style.css'
 
 import { useEffect } from 'react'
 
-import Navbar from '../../components/Template/Navbar'
-import Header from '../../components/Template/Header'
-import Footer from '../../components/Template/Footer'
-
-import '@fortawesome/fontawesome-free/js/all'
-
-
 function Dashboard() {
 
     useEffect(() => {
@@ -16,37 +9,23 @@ function Dashboard() {
 
     return(
         <div>
-            {/* <!--begin::Body-->*/}
-            <div id="kt_body" className="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed">
-                {/* <!--begin::Main-->*/}
-                {/* <!--begin::Root-->*/}
-                <div className="d-flex flex-column flex-root">
-                    {/* <!--begin::Page-->*/}
-                    <div className="page d-flex flex-row flex-column-fluid">
-                        {/* <!--begin::Aside-->*/}
-                        <Navbar />
-                        {/* <!--end::Aside-->*/}
-                        {/* <!--begin::Wrapper-->*/}
-                        <div className="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                            {/* <!--begin::Header-->*/}
-                            <Header />
-                            {/* <!--end::Header-->*/}
-                            {/* <!--begin::Content-->*/}
-                            <div className="content d-flex flex-column flex-column-fluid" id="kt_content">
-                            </div>
-                            {/* <!--end::Content-->*/}
-                            {/* <!--begin::Footer-->*/}
-                            <Footer />
-                            {/* <!--end::Footer-->*/}
+            {/* <!--begin::Post-->*/}
+            <div className="post d-flex flex-column-fluid" id="kt_post">
+                {/* <!--begin::Container-->*/}
+                <div id="kt_content_container" className="container-xxl">
+                    {/* <!--begin::Table-->*/}
+                    <div className="card card-flush mt-6">
+                        {/* <!--begin::Card body-->*/}
+                        <div className="card-body py-4">
+                            Dashboard
                         </div>
-                        {/* <!--end::Wrapper-->*/}
+                        {/* <!--end::Card body-->*/}
                     </div>
-                    {/* <!--end::Page-->*/}
+                    {/* <!--end::Card-->*/}
                 </div>
-                {/* <!--end::Root-->*/}
-                {/* <!--end::Main-->*/}
+                {/* <!--end::Container-->*/}
             </div>
-            {/* <!--end::Body-->*/}
+            {/* <!--end::Post-->*/}
         </div>
     )
 }

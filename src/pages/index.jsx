@@ -1,5 +1,8 @@
 import './style.css'
 
+import Dashboard from './Dashboard'
+import Usuarios from './Usuarios'
+
 import VerificaAuth from '../components/Funcoes/VerificaAuth' // Verifica autenticação do Usuário
 import Navbar from '../components/Template/Navbar'
 import Header from '../components/Template/Header'
@@ -7,6 +10,17 @@ import Footer from '../components/Template/Footer'
 
 function Dimensiona() {
     VerificaAuth() // Verifica autenticação do Usuário
+    const url = window.location.pathname;
+    const segment = url.substring(url.lastIndexOf('/') + 1)
+
+    const Componentes = () => {
+        if ( segment === '' ) {
+            return <Dashboard />
+        }
+        else if ( segment === 'Usuarios' ) {
+            return <Usuarios />
+        }
+    }
     
     return (
         <div>
@@ -27,6 +41,7 @@ function Dimensiona() {
                             {/* <!--end::Header-->*/}
                             {/* <!--begin::Content-->*/}
                             <div className="content d-flex flex-column flex-column-fluid" id="kt_content">
+                                <Componentes />
                             </div>
                             {/* <!--end::Content-->*/}
                             {/* <!--begin::Footer-->*/}
