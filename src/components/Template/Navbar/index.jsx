@@ -6,7 +6,17 @@ import { Link } from "react-router-dom"
 
 function Navbar() {
     const url = window.location.pathname;
-    const segment = url.substring(url.lastIndexOf('/') + 1)
+    var segment
+
+    if (url.substring(url.lastIndexOf('/') + 1) === '') {
+        segment = 'Dashboard'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'TempoReal') {
+        segment = 'Tempo Real'
+    }
+    else {
+        segment = url.substring(url.lastIndexOf('/') + 1)
+    }
 
     return(
         <div>
@@ -40,7 +50,7 @@ function Navbar() {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <Link to="/" className={segment === '' ? 'menu-link active' : 'menu-link' }>
+                                <Link to="/" className={segment === 'Dashboard' ? 'menu-link active' : 'menu-link' }>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <FontAwesomeIcon icon={faChartLine} />
@@ -50,7 +60,7 @@ function Navbar() {
                                 </Link>
                             </div>
                             <div className="menu-item">
-                                <Link to="/TempoReal" className={segment === 'TempoReal' ? 'menu-link active' : 'menu-link' }>
+                                <Link to="/TempoReal" className={segment === 'Tempo Real' ? 'menu-link active' : 'menu-link' }>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <FontAwesomeIcon icon={faHourglassHalf} />

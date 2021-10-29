@@ -2,12 +2,15 @@ import './style.css'
 
 import { useEffect } from 'react'
 
+import VerificaAuth from '../../components/Funcoes/VerificaAuth'
+
 import Navbar from '../../components/Template/Navbar'
 import Header from '../../components/Template/Header'
 // import Sidebar from '../../components/Sidebar/index'
 import Footer from '../../components/Template/Footer'
 
-function Dashboard_Modelo(){
+function Dashboard_Modelo() {
+    VerificaAuth() // Verifica autenticação do Usuário
 
     useEffect(() => {
     }, [])

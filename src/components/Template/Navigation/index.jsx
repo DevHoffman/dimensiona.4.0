@@ -3,8 +3,18 @@ import './style.css'
 // import { Link } from "react-router-dom"
 
 function Navigation() {
-    const url = window.location.pathname;
-    const segment = url.substring(url.lastIndexOf('/') + 1)
+    var url = window.location.pathname;
+    var segment
+
+    if ( url.substring(url.lastIndexOf('/') + 1) === ''){
+        segment = 'Dashboard'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'TempoReal') {
+        segment = 'Tempo Real'
+    }
+    else {
+        segment = url.substring(url.lastIndexOf('/') + 1)
+    }
 
     return(
         <div>

@@ -1,10 +1,110 @@
 import './style.css'
 
+import VerificaAuth from '../../components/Funcoes/VerificaAuth'
+
 import Header from '../../components/Template/Header'
 import Navbar from '../../components/Template/Navbar'
 import Footer from '../../components/Template/Footer'
 
-function TempoReal(){
+import Datatables from '../../components/Datatables'
+
+function TempoReal() {
+    VerificaAuth() // Verifica autenticação do Usuário
+
+    const columns = [
+        {
+            name: 'Campanha',
+            selector: row => row.Campanha,
+            sortable: true,
+        },
+        {
+            name: 'Escalados',
+            selector: row => row.Escalado,
+            sortable: true,
+        },
+        {
+            name: 'Absenteísmo',
+            selector: row => row.ABS,
+            sortable: true,
+        },
+        {
+            name: 'Porcentagem',
+            selector: row => row.porcentagem,
+            sortable: true,
+        },
+    ]
+
+    const data = [
+        { 
+            "Campanha": "ARSP", 
+            "CodiCampanha": "4", 
+            "ABS": "1", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "2", 
+            "porcentagem": "50.00", 
+            "Supervisor": "EDINA SANTOS" 
+        }, 
+        { 
+            "Campanha": "BANCO PAN", 
+            "CodiCampanha": "16", 
+            "ABS": "4", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "4", 
+            "porcentagem": "100.00", 
+            "Supervisor": "ERICO FERREIRA ROSA" 
+        }, 
+        { 
+            "Campanha": "MEDSENIOR", 
+            "CodiCampanha": "14", 
+            "ABS": "1", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "1", 
+            "porcentagem": "100.00", 
+            "Supervisor": "ERICO FERREIRA ROSA" 
+        }, 
+        { 
+            "Campanha": "Rede Tribuna", 
+            "CodiCampanha": "1", 
+            "ABS": "16", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "17", 
+            "porcentagem": "94.12", 
+            "Supervisor": "EDINA SANTOS" 
+        }, 
+        { 
+            "Campanha": "Rodosol", 
+            "CodiCampanha": "2", 
+            "ABS": "5", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "5", 
+            "porcentagem": "100.00", 
+            "Supervisor": "ERICO FERREIRA ROSA" 
+        }, 
+        { 
+            "Campanha": "V1", 
+            "CodiCampanha": "10", 
+            "ABS": "2", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "2", 
+            "porcentagem": "100.00", 
+            "Supervisor": "ERICO FERREIRA ROSA" 
+        }, 
+        { 
+            "Campanha": "Vale", 
+            "CodiCampanha": "5", 
+            "ABS": "13", 
+            "Coordenador": "Priscilla Araujo", 
+            "Escalado": "16", 
+            "porcentagem": "81.25", 
+            "Supervisor": "JORGE PEIXOTO JR" 
+        }
+    ]
+    
+    var dataSelect = [{label: 'Todos', value: ''}]
+    for (let i = 0; i < data.length; i++) {
+        dataSelect.push({ label: data[i].Campanha, value: data[i].Campanha});
+    }
+
     return(
         <div>
             {/* <!--begin::Body-->*/}
@@ -32,7 +132,19 @@ function TempoReal(){
                                         <div className="card card-flush mt-6">
                                             {/* <!--begin::Card body-->*/}
                                             <div className="card-body py-4">
-                                                teste
+                                                {/* <!--begin::Table container-->*/}
+                                                <div className="table-responsive">
+                                                    {/* <!--begin::Table-->*/}
+                                                    <Datatables
+                                                        nomeTabela='Relatório em Tempo Real'
+                                                        columns={columns}
+                                                        data={data}
+                                                        dataSelect={dataSelect}
+                                                        placeholderSelect={"Campanha"}
+                                                    />
+                                                    {/* <!--end::Table-->*/}
+                                                </div>
+                                                {/* <!--end::Table container-->*/}
                                             </div>
                                             {/* <!--end::Card body-->*/}
                                         </div>

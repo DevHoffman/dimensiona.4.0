@@ -2,7 +2,10 @@ import './style.css'
 
 import { useEffect } from 'react'
 
+import VerificaAuth from '../../components/Funcoes/VerificaAuth'
+
 function Dashboard() {
+    VerificaAuth() // Verifica autenticação do Usuário
 
     useEffect(() => {
     }, [])

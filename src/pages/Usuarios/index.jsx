@@ -1,11 +1,14 @@
 import "./style.css"
 
+import VerificaAuth from '../../components/Funcoes/VerificaAuth'
+
 import Footer from "../../components/Template/Footer"
 import Header from "../../components/Template/Header"
 import Navbar from "../../components/Template/Navbar"
 import Datatables from "../../components/Datatables"
 
 function Usuarios() {
+    VerificaAuth() // Verifica autenticação do Usuário
 
 
     const columns = [
@@ -38,16 +41,16 @@ function Usuarios() {
             NivelAcesso: 'Administrador',
         },
         {
-            Usuario: 'Administrador',
-            Email: 'admin@admin.com',
-            Login: 'admin',
-            NivelAcesso: 'Administrador',
-        },
-        {
             Usuario: 'Teste 0',
             Email: 'teste@teste.com',
             Login: 'teste0',
             NivelAcesso: 'Usuario',
+        },
+        {
+            Usuario: 'Administrador',
+            Email: 'admin@admin.com',
+            Login: 'admin',
+            NivelAcesso: 'Administrador',
         },
         {
             Usuario: 'Teste 1',
@@ -63,20 +66,10 @@ function Usuarios() {
         },
     ]
 
-    const dataSelect = [
-        {
-            label: 'Todos',
-            value: '',
-        },
-        {
-            label: 'Administrador',
-            value: 'Administrador',
-        },
-        {
-            label: 'Usuario',
-            value: 'Usuario',
-        },
-    ]
+    var dataSelect = [{ label: 'Todos', value: '' }]
+    for (let i = 0; i < data.length; i++) {
+        dataSelect.push({ label: data[i].NivelAcesso, value: data[i].NivelAcesso });
+    }
 
     return(
         <div>

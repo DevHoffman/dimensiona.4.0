@@ -48,6 +48,34 @@ function Datatable(props) {
         }, 1000)
     }
 
+    
+
+    function criaSelect(data, label = 'NivelAcesso') { // Gera os dados do SELECT com nível de acesso
+        let criaSelect = [{ label: 'Todos', value: '' }]
+        
+        for (let i = 0; i < data.length; i++) {
+            criaSelect.push({ label: data[i][label], value: data[i][label] })
+        }
+
+        let novoArr = criaSelect.map(item => item.value);
+        
+        let novissimoArr = novoArr.filter((este, i) => {
+            return novoArr.indexOf(este) === i;
+        })
+
+        criaSelect = novissimoArr.map(item => {
+
+            if (item) return { label: item, value: item }
+            else return {label: 'Todos', value: item}
+        })
+
+        return criaSelect
+    }
+
+    const dataSelect = criaSelect(props.dataSelect, 'Email')
+    
+    console.log(dataSelect)
+
     const subHeaderComponent = (
         <div>
             {/* <!--begin::Card toolbar-->*/}
@@ -59,7 +87,7 @@ function Datatable(props) {
                 <div className="me-4 my-1">
                     <Select
                         className="w-200px form-select-solid form-select-sm"
-                        options={props.dataSelect}
+                        options={dataSelect}
                         onChange={onChangeSelect}
                         placeholder={props.placeholderSelect}
                     />
