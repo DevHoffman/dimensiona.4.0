@@ -59,7 +59,7 @@ function Header(props) {
                                 <div className="d-flex align-items-center">
                                     {/* <!--begin::Menu wrapper-->*/}
                                     <div className="btn ">
-                                        <h3 className="fw-bold no-margin">Olá, Thyago</h3>
+                                        <h3 className="text-dark fw-bolder fs-3 my-1 no-margin">Olá, Thyago</h3>
                                     </div>
                                     {/* <!--end::Menu wrapper-->*/}
                                 </div>

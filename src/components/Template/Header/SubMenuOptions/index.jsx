@@ -54,7 +54,7 @@ function SubMenuOptions() {
                         {/* <!--end::Avatar-->*/}
                         {/* <!--begin::Username-->*/}
                         <div className="d-flex flex-column">
-                            <div className="fw-bolder d-flex align-items-center fs-5">Thyago
+                            <div className="text-dark fw-bolder fs-3 my-1">Thyago
                                 <span className="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
                             <a href="#nada" className="fw-bold text-muted text-hover-primary fs-7">thoffman1698@gmail.com</a>
                         </div>

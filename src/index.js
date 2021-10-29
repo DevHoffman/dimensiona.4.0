@@ -28,7 +28,7 @@ ReactDOM.render(
         <Route exact path="/Configuracoes" component={Configuracoes} />
         <Route exact path="/Dashboard_Modelo" component={Dashboard_Modelo} />
         <Route exact path="/TempoReal" component={TempoReal} />
-    </Router>,
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
