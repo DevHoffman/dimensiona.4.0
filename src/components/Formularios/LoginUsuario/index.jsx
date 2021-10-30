@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { useForm } from "react-hook-form"
 
 import axios from 'axios'
@@ -99,13 +99,22 @@ function LoginUsuario() {
                                                     </label> */}
                         </div>
                         <div className="col kt-align-right">
-                            <button type="button" id="kt_login_forgot" className="kt-link kt-login__link btn btn-link">Esqueceu sua senha ?</button>
+                            <Link to="/Recuperar">
+                                <button type="button" id="kt_login_forgot" className="kt-link kt-login__link btn btn-link">Esqueceu sua senha ?</button>
+                            </Link>
                         </div>
                     </div>
                     <div className="kt-login__actions">
                         <button id="kt_login_signin_submit" type="submit" className="btn btn-pill kt-login__btn-primary botao">Autenticar <Loader /></button>
                     </div>
                 </form>
+            </div>
+
+            <div className="kt-login__account">
+                <span className="kt-login__account-msg">
+                    Não tem conta ainda ?
+                </span>&nbsp;&nbsp;
+                <Link to="/Cadastrar"><button type="button" className="kt-link kt-login__link btn btn-link">Criar Conta</button></Link>
             </div>
         </div>
     )

@@ -1,9 +1,9 @@
 import "./style.css"
 
-import LoginUsuario from '../../components/Formularios/LoginUsuario'
-import logo from '../../components/assets/img/logo.svg'
+import RecuperaSenha from '../../../components/Formularios/RecuperaSenha'
+import logo from '../../../components/assets/img/logo.svg'
 
-function Login() {
+function RecuperarSenhaUsuario() {
 
     return (
         <div>
@@ -17,7 +17,7 @@ function Login() {
                                         <img src={logo} alt="Logo do Site" />
                                     </div>
 
-                                    <LoginUsuario />
+                                    <RecuperaSenha />
 
                                 </div>
                             </div>
@@ -29,4 +29,4 @@ function Login() {
     )
 }
 
-export default Login
+export default RecuperarSenhaUsuario

@@ -69,8 +69,6 @@ function CadastroUsuario() {
     }
     return(
         <div>
-
-
             <div className="kt-login__signup">
                 <div className="kt-login__head">
                     <h3 className="kt-login__title">Criar Conta</h3>
@@ -105,7 +103,7 @@ function CadastroUsuario() {
                     </div>
                     <div className="kt-login__actions">
                         <button id="kt_login_signup_submit" className="btn btn-pill kt-login__btn-primary">Criar Conta</button>&nbsp;&nbsp;
-                        <button type="button" id="kt_login_signup_cancel" className="btn btn-pill kt-login__btn-secondary" onClick={onClick}>Voltar</button>
+                        <Link to="/Login"><button type="button" className="btn btn-pill kt-login__btn-secondary">Voltar</button></Link>
                     </div>
                 </form>
             </div>

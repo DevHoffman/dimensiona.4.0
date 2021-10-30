@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import './style-global.css'
 
-import Login from './pages/Login'
-// import Sair from './pages/Sair'
 import Dimensiona from './pages'
+import Login from './pages/Login'
+import Cadastrar from './pages/Login/CadastrarUsuario'
+import Recuperar from './pages/Login/RecuperarSenhaUsuario'
+// import Sair from './pages/Sair'
 import Dashboard from "./pages/Dashboard"
 import Usuarios from './pages/Usuarios'
 import Detalhes from './pages/Usuarios/Detalhes'
@@ -20,6 +22,8 @@ ReactDOM.render(
     <Router>
         <Route exact path="/" component={Dimensiona} />
         <Route exact path="/Login" component={Login} />
+        <Route exact path="/Cadastrar" component={Cadastrar} />
+        <Route exact path="/Recuperar" component={Recuperar} />
         {/* <Route exact path="/Sair" component={Sair} /> */}
         <Route exact path="/Dashboard" component={Dashboard} />
         <Route exact path="/Usuarios" component={Usuarios} />

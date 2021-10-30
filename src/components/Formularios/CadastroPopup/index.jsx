@@ -1,5 +1,3 @@
-import './style.css'
-
 function CadastroPopup(){
     return(
         <form id="formcadastro" noValidate="novalidate" className="formName">

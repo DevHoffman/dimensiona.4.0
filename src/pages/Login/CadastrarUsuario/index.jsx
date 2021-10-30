@@ -1,9 +1,9 @@
 import "./style.css"
 
-import LoginUsuario from '../../components/Formularios/LoginUsuario'
-import logo from '../../components/assets/img/logo.svg'
+import CadastroUsuario from '../../../components/Formularios/CadastroUsuario'
+import logo from '../../../components/assets/img/logo.svg'
 
-function Login() {
+function CadastrarUsuario() {
 
     return (
         <div>
@@ -17,7 +17,7 @@ function Login() {
                                         <img src={logo} alt="Logo do Site" />
                                     </div>
 
-                                    <LoginUsuario />
+                                    <CadastroUsuario />
 
                                 </div>
                             </div>
@@ -29,4 +29,4 @@ function Login() {
     )
 }
 
-export default Login
+export default CadastrarUsuario
