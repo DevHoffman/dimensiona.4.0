@@ -10,6 +10,7 @@ function Datatable(props) {
     const [pending, setPending] = useState(true)
     const [Data, setData] = useState(props.data)
     const filtroData = props.data
+    const dataSelect = props.dataSelect
 
     useEffect(() => {
         setPending(false)
@@ -19,11 +20,18 @@ function Datatable(props) {
         setPending(true)
         clearTimeout(timer)
         timer = setTimeout(() => {
-            const filtro = value.value
             let result = filtroData.filter(function (item) {
-                let itemNivelAcesso = item.NivelAcesso.toLowerCase()
-                let valorNivelAcesso = filtro.toLowerCase()
-                return itemNivelAcesso.indexOf(valorNivelAcesso) !== -1
+                // let lastColumn = props.columns.at(-1).selector // Pega o nome da última coluna
+                // lastColumn = lastColumn.toString() // Converte para String
+                // lastColumn = lastColumn.substring(29, 11) // Filtra o nome NivelAcesso
+                // console.log(lastColumn, value.value, item)
+                
+                if (item[props.indexSelect] === value.value || value.value === '' ){
+                    return item
+                }
+                else {
+                    return null
+                }
             })
             setData(result)
             setPending(false)
@@ -47,34 +55,6 @@ function Datatable(props) {
             setPending(false)
         }, 1000)
     }
-
-    
-
-    function criaSelect(data, label = 'NivelAcesso') { // Gera os dados do SELECT com nível de acesso
-        let criaSelect = [{ label: 'Todos', value: '' }]
-        
-        for (let i = 0; i < data.length; i++) {
-            criaSelect.push({ label: data[i][label], value: data[i][label] })
-        }
-
-        let novoArr = criaSelect.map(item => item.value);
-        
-        let novissimoArr = novoArr.filter((este, i) => {
-            return novoArr.indexOf(este) === i;
-        })
-
-        criaSelect = novissimoArr.map(item => {
-
-            if (item) return { label: item, value: item }
-            else return {label: 'Todos', value: item}
-        })
-
-        return criaSelect
-    }
-
-    const dataSelect = criaSelect(props.dataSelect, 'Email')
-    
-    console.log(dataSelect)
 
     const subHeaderComponent = (
         <div>

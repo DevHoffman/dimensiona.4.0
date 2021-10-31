@@ -41,7 +41,7 @@ function TempoReal() {
             "ABS": "1", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "2", 
-            "porcentagem": "50.00", 
+            "porcentagem": "50.00%", 
             "Supervisor": "EDINA SANTOS" 
         }, 
         { 
@@ -50,7 +50,7 @@ function TempoReal() {
             "ABS": "4", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "4", 
-            "porcentagem": "100.00", 
+            "porcentagem": "100.00%", 
             "Supervisor": "ERICO FERREIRA ROSA" 
         }, 
         { 
@@ -59,7 +59,7 @@ function TempoReal() {
             "ABS": "1", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "1", 
-            "porcentagem": "100.00", 
+            "porcentagem": "100.00%", 
             "Supervisor": "ERICO FERREIRA ROSA" 
         }, 
         { 
@@ -68,7 +68,7 @@ function TempoReal() {
             "ABS": "16", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "17", 
-            "porcentagem": "94.12", 
+            "porcentagem": "94.12%", 
             "Supervisor": "EDINA SANTOS" 
         }, 
         { 
@@ -77,7 +77,7 @@ function TempoReal() {
             "ABS": "5", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "5", 
-            "porcentagem": "100.00", 
+            "porcentagem": "100.00%", 
             "Supervisor": "ERICO FERREIRA ROSA" 
         }, 
         { 
@@ -86,7 +86,7 @@ function TempoReal() {
             "ABS": "2", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "2", 
-            "porcentagem": "100.00", 
+            "porcentagem": "100.00%", 
             "Supervisor": "ERICO FERREIRA ROSA" 
         }, 
         { 
@@ -95,15 +95,34 @@ function TempoReal() {
             "ABS": "13", 
             "Coordenador": "Priscilla Araujo", 
             "Escalado": "16", 
-            "porcentagem": "81.25", 
+            "porcentagem": "81.25%", 
             "Supervisor": "JORGE PEIXOTO JR" 
         }
     ]
-    
-    var dataSelect = [{label: 'Todos', value: ''}]
-    for (let i = 0; i < data.length; i++) {
-        dataSelect.push({ label: data[i].Campanha, value: data[i].Campanha});
+
+    function limpaSelect(data, label = 'NivelAcesso') { // Gera os dados do SELECT com nível de acesso
+        let limpaSelect = [{ label: 'Todos', value: '' }]
+
+        for (let i = 0; i < data.length; i++) {
+            limpaSelect.push({ label: data[i][label], value: data[i][label] })
+        }
+
+        let novoArr = limpaSelect.map(item => item.value);
+
+        let novissimoArr = novoArr.filter((este, i) => {
+            return novoArr.indexOf(este) === i;
+        })
+
+        limpaSelect = novissimoArr.map(item => {
+
+            if (item) return { label: item, value: item }
+            else return { label: 'Todos', value: item }
+        })
+
+        return limpaSelect
     }
+    
+    var dataSelect = limpaSelect(data, 'Campanha')
 
     return(
         <div>
@@ -141,6 +160,7 @@ function TempoReal() {
                                                         data={data}
                                                         dataSelect={dataSelect}
                                                         placeholderSelect={"Campanha"}
+                                                        indexSelect={'Campanha'}
                                                     />
                                                     {/* <!--end::Table-->*/}
                                                 </div>

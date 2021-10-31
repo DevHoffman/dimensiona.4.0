@@ -10,7 +10,6 @@ import Datatables from "../../components/Datatables"
 function Usuarios() {
     VerificaAuth() // Verifica autenticação do Usuário
 
-
     const columns = [
         {
             name: 'Nome',
@@ -66,10 +65,29 @@ function Usuarios() {
         },
     ]
 
-    var dataSelect = [{ label: 'Todos', value: '' }]
-    for (let i = 0; i < data.length; i++) {
-        dataSelect.push({ label: data[i].NivelAcesso, value: data[i].NivelAcesso });
+    function limpaSelect(data, label = 'NivelAcesso') { // Gera os dados do SELECT com nível de acesso
+        let limpaSelect = [{ label: 'Todos', value: '' }]
+
+        for (let i = 0; i < data.length; i++) {
+            limpaSelect.push({ label: data[i][label], value: data[i][label] })
+        }
+
+        let novoArr = limpaSelect.map(item => item.value);
+
+        let novissimoArr = novoArr.filter((este, i) => {
+            return novoArr.indexOf(este) === i;
+        })
+
+        limpaSelect = novissimoArr.map(item => {
+
+            if (item) return { label: item, value: item }
+            else return { label: 'Todos', value: item }
+        })
+
+        return limpaSelect
     }
+
+    const dataSelect = limpaSelect(data, 'NivelAcesso')
 
     return(
         <div>
@@ -107,6 +125,7 @@ function Usuarios() {
                                                             data={data}
                                                             dataSelect={dataSelect}
                                                             placeholderSelect={"Nível de Acesso"}
+                                                            indexSelect={'NivelAcesso'}
                                                         />
                                                         {/* <!--end::Table-->*/}
                                                     </div>
