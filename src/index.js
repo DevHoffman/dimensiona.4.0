@@ -15,7 +15,11 @@ import Detalhes from './pages/Usuarios/Detalhes'
 import Perfil from './pages/Perfil'
 import Configuracoes from './pages/Configuracoes'
 import Dashboard_Modelo from './pages/Dashboard_Modelo'
-import TempoReal from './pages/TempoReal'
+import CampanhaTempoReal from './pages/TempoReal/CampanhaTempoReal'
+import CoordenadorTempoReal from './pages/TempoReal/CoordenadorTempoReal'
+import SupervisorTempoReal from './pages/TempoReal/SupervisorTempoReal'
+import OperadorTempoReal from './pages/TempoReal/OperadorTempoReal'
+import CampanhaRelatorio from './pages/Relatorios/CampanhaRelatorio'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -31,7 +35,11 @@ ReactDOM.render(
         <Route exact path="/Perfil" component={Perfil} />
         <Route exact path="/Configuracoes" component={Configuracoes} />
         <Route exact path="/Dashboard_Modelo" component={Dashboard_Modelo} />
-        <Route exact path="/TempoReal" component={TempoReal} />
+        <Route exact path="/CampanhaTempoReal" component={CampanhaTempoReal} />
+        <Route exact path="/CoordenadorTempoReal" component={CoordenadorTempoReal} />
+        <Route exact path="/SupervisorTempoReal" component={SupervisorTempoReal} />
+        <Route exact path="/OperadorTempoReal" component={OperadorTempoReal} />
+        <Route exact path="/CampanhaRelatorio" component={CampanhaRelatorio} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

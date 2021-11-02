@@ -1,20 +1,20 @@
 import './style.css'
 
-import VerificaAuth from '../../components/Funcoes/VerificaAuth'
+import VerificaAuth from '../../../components/Funcoes/VerificaAuth'
 
-import Header from '../../components/Template/Header'
-import Navbar from '../../components/Template/Navbar'
-import Footer from '../../components/Template/Footer'
+import Header from '../../../components/Template/Header'
+import Navbar from '../../../components/Template/Navbar'
+import Footer from '../../../components/Template/Footer'
 
-import Datatables from '../../components/Datatables'
+import Datatables from '../../../components/Datatables'
 
-function TempoReal() {
+function SupervisorTempoReal() {
     VerificaAuth() // Verifica autenticação do Usuário
 
     const columns = [
         {
-            name: 'Campanha',
-            selector: row => row.Campanha,
+            name: 'Supervisores',
+            selector: row => row.Supervisor,
             sortable: true,
         },
         {
@@ -35,68 +35,47 @@ function TempoReal() {
     ]
 
     const data = [
-        { 
-            "Campanha": "ARSP", 
-            "CodiCampanha": "4", 
-            "ABS": "1", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "2", 
-            "porcentagem": "50.00%", 
-            "Supervisor": "EDINA SANTOS" 
-        }, 
-        { 
-            "Campanha": "BANCO PAN", 
-            "CodiCampanha": "16", 
-            "ABS": "4", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "4", 
-            "porcentagem": "100.00%", 
-            "Supervisor": "ERICO FERREIRA ROSA" 
-        }, 
-        { 
-            "Campanha": "MEDSENIOR", 
-            "CodiCampanha": "14", 
-            "ABS": "1", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "1", 
-            "porcentagem": "100.00%", 
-            "Supervisor": "ERICO FERREIRA ROSA" 
-        }, 
-        { 
-            "Campanha": "Rede Tribuna", 
-            "CodiCampanha": "1", 
-            "ABS": "16", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "17", 
-            "porcentagem": "94.12%", 
-            "Supervisor": "EDINA SANTOS" 
-        }, 
-        { 
-            "Campanha": "Rodosol", 
-            "CodiCampanha": "2", 
-            "ABS": "5", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "5", 
-            "porcentagem": "100.00%", 
-            "Supervisor": "ERICO FERREIRA ROSA" 
-        }, 
-        { 
-            "Campanha": "V1", 
-            "CodiCampanha": "10", 
-            "ABS": "2", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "2", 
-            "porcentagem": "100.00%", 
-            "Supervisor": "ERICO FERREIRA ROSA" 
-        }, 
-        { 
-            "Campanha": "Vale", 
-            "CodiCampanha": "5", 
-            "ABS": "13", 
-            "Coordenador": "Priscilla Araujo", 
-            "Escalado": "16", 
-            "porcentagem": "81.25%", 
-            "Supervisor": "JORGE PEIXOTO JR" 
+        {
+            "Supervisor": "Supervisor 01",
+            "Escalado": "2",
+            "ABS": "1",
+            "porcentagem": "50.00%",
+        },
+        {
+            "Supervisor": "Supervisor 02",
+            "Escalado": "4",
+            "ABS": "4",
+            "porcentagem": "100.00%",
+        },
+        {
+            "Supervisor": "Supervisor 03",
+            "Escalado": "1",
+            "ABS": "1",
+            "porcentagem": "100.00%",
+        },
+        {
+            "Supervisor": "Supervisor 04",
+            "Escalado": "17",
+            "ABS": "16",
+            "porcentagem": "94.12%",
+        },
+        {
+            "Supervisor": "Supervisor 05",
+            "Escalado": "5",
+            "ABS": "5",
+            "porcentagem": "100.00%",
+        },
+        {
+            "Supervisor": "Supervisor 06",
+            "Escalado": "2",
+            "ABS": "2",
+            "porcentagem": "100.00%",
+        },
+        {
+            "Supervisor": "Supervisor 07",
+            "Escalado": "16",
+            "ABS": "13",
+            "porcentagem": "81.25%",
         }
     ]
 
@@ -121,10 +100,10 @@ function TempoReal() {
 
         return limpaSelect
     }
-    
-    var dataSelect = limpaSelect(data, 'Campanha')
 
-    return(
+    var dataSelect = limpaSelect(data, 'Supervisor')
+
+    return (
         <div>
             {/* <!--begin::Body-->*/}
             <div id="kt_body" className="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed">
@@ -155,12 +134,13 @@ function TempoReal() {
                                                 <div className="table-responsive">
                                                     {/* <!--begin::Table-->*/}
                                                     <Datatables
-                                                        nomeTabela='Relatório em Tempo Real'
+                                                        nomeTabela='Supervisores em Tempo Real'
                                                         columns={columns}
                                                         data={data}
                                                         dataSelect={dataSelect}
-                                                        placeholderSelect={"Campanha"}
-                                                        indexSelect={'Campanha'}
+                                                        placeholderSelect={"Supervisor"}
+                                                        indexSelect={'Supervisor'}
+                                                        indexTable={'Supervisor'}
                                                     />
                                                     {/* <!--end::Table-->*/}
                                                 </div>
@@ -191,4 +171,4 @@ function TempoReal() {
     )
 }
 
-export default TempoReal
+export default SupervisorTempoReal

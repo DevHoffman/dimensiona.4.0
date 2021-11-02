@@ -21,11 +21,6 @@ function Datatable(props) {
         clearTimeout(timer)
         timer = setTimeout(() => {
             let result = filtroData.filter(function (item) {
-                // let lastColumn = props.columns.at(-1).selector // Pega o nome da última coluna
-                // lastColumn = lastColumn.toString() // Converte para String
-                // lastColumn = lastColumn.substring(29, 11) // Filtra o nome NivelAcesso
-                // console.log(lastColumn, value.value, item)
-                
                 if (item[props.indexSelect] === value.value || value.value === '' ){
                     return item
                 }
@@ -42,14 +37,17 @@ function Datatable(props) {
         setPending(true)
         clearTimeout(timer)
         timer = setTimeout(() => {
-            const filtro = e.target.value
+            let itemTabela
+            let itemBusca
             let result = filtroData.filter(function (item) {
-                let itemNome = item.Usuario.toLowerCase()
-                let itemEmail = item.Email.toLowerCase()
-                let valorNome = filtro.toLowerCase()
-                let valorEmail = filtro.toLowerCase()
-                return itemNome.indexOf(valorNome) !== -1
-                    || itemEmail.indexOf(valorEmail) !== -1
+                itemTabela= item[props.indexTable].toUpperCase()
+                itemBusca = e.target.value.toUpperCase()
+                if (itemTabela.indexOf(itemBusca) !== -1 || itemBusca === '' ){
+                    return item
+                }
+                else {
+                    return null
+                }
             })
             setData(result)
             setPending(false)

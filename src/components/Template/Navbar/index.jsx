@@ -1,6 +1,6 @@
 import "./style.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChartLine, faHourglassHalf, faUsersCog, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faUsersCog, faAngleDoubleLeft, faBuilding, faUserTie, faCrown, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from "react-router-dom"
 
@@ -11,8 +11,20 @@ function Navbar() {
     if (url.substring(url.lastIndexOf('/') + 1) === '') {
         segment = 'Dashboard'
     }
-    else if (url.substring(url.lastIndexOf('/') + 1) === 'TempoReal') {
-        segment = 'Tempo Real'
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CampanhaTempoReal') {
+        segment = 'Campanhas em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CoordenadorTempoReal') {
+        segment = 'Coordenadores em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'SupervisorTempoReal') {
+        segment = 'Supervisores em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'OperadorTempoReal') {
+        segment = 'Operadores em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CampanhaRelatorio') {
+        segment = 'Relatórios das Campanhas'
     }
     else {
         segment = url.substring(url.lastIndexOf('/') + 1)
@@ -59,16 +71,72 @@ function Navbar() {
                                     <span className="menu-title">Dashboard</span>
                                 </Link>
                             </div>
+
+                            {/* Bloco Tempo Real */}
                             <div className="menu-item">
-                                <Link to="/TempoReal" className={segment === 'Tempo Real' ? 'menu-link active' : 'menu-link' }>
+                                <div className="menu-content pb-2">
+                                    <span className="menu-section text-muted text-uppercase fs-8 ls-1">Tempo Real</span>
+                                </div>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/CampanhaTempoReal" className={segment === 'Campanhas em Tempo Real' ? 'menu-link active' : 'menu-link' }>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
-                                        <FontAwesomeIcon icon={faHourglassHalf} />
+                                        <FontAwesomeIcon icon={faBuilding} />
                                         {/* <!--end::Svg Icon-->*/}
                                     </span>
-                                    <span className="menu-title">Tempo Real</span>
+                                    <span className="menu-title">Campanha</span>
                                 </Link>
                             </div>
+                            <div className="menu-item">
+                                <Link to="/CoordenadorTempoReal" className={segment === 'Coordenadores em Tempo Real' ? 'menu-link active' : 'menu-link' }>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faCrown} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Coordenador</span>
+                                </Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/SupervisorTempoReal" className={segment === 'Supervisores em Tempo Real' ? 'menu-link active' : 'menu-link' }>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faUserTie} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Supervisor</span>
+                                </Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/OperadorTempoReal" className={segment === 'Operadores em Tempo Real' ? 'menu-link active' : 'menu-link' }>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faUser} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Operador</span>
+                                </Link>
+                            </div>
+                            {/* Bloco Tempo Real Fim */}
+
+                            {/* Bloco Relatório */}
+                            <div className="menu-item">
+                                <div className="menu-content pb-2">
+                                    <span className="menu-section text-muted text-uppercase fs-8 ls-1">Gerar Relatórios</span>
+                                </div>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/CampanhaRelatorio" className={segment === 'Relatórios das Campanhas' ? 'menu-link active' : 'menu-link'}>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faBuilding} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Campanha</span>
+                                </Link>
+                            </div>
+
                         </div>
                         {/* <!--end::Menu-->*/}
                         {/* <!--begin::Menu-->*/}

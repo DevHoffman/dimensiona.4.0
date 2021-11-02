@@ -9,8 +9,20 @@ function Navigation() {
     if ( url.substring(url.lastIndexOf('/') + 1) === ''){
         segment = 'Dashboard'
     }
-    else if (url.substring(url.lastIndexOf('/') + 1) === 'TempoReal') {
-        segment = 'Tempo Real'
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CampanhaTempoReal') {
+        segment = 'Campanhas em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CoordenadorTempoReal') {
+        segment = 'Coordenadores em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'SupervisorTempoReal') {
+        segment = 'Supervisores em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'OperadorTempoReal') {
+        segment = 'Operadores em Tempo Real'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CampanhaRelatorio') {
+        segment = 'Relatórios das Campanhas'
     }
     else {
         segment = url.substring(url.lastIndexOf('/') + 1)

@@ -126,6 +126,7 @@ function Usuarios() {
                                                             dataSelect={dataSelect}
                                                             placeholderSelect={"Nível de Acesso"}
                                                             indexSelect={'NivelAcesso'}
+                                                            indexTable={'Usuario'}
                                                         />
                                                         {/* <!--end::Table-->*/}
                                                     </div>
