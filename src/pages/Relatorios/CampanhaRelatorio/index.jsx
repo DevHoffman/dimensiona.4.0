@@ -7,6 +7,7 @@ import Navbar from '../../../components/Template/Navbar'
 import Footer from '../../../components/Template/Footer'
 
 import Datatables from '../../../components/Datatables'
+import DataPeriodo from '../../../components/DataPeriodo'
 
 function CampanhaRelatorio() {
     VerificaAuth() // Verifica autenticação do Usuário
@@ -130,9 +131,9 @@ function CampanhaRelatorio() {
                                         <div className="card card-flush mt-6">
                                             {/* <!--begin::Card body-->*/}
                                             <div className="card-body py-4">
-                                                {/* <!--begin::Table container-->*/}
-                                                Teste
-                                                {/* <!--end::Table container-->*/}
+                                                {/* <!--begin::Data container-->*/}
+                                                <DataPeriodo />
+                                                {/* <!--end::Data container-->*/}
                                             </div>
                                             {/* <!--end::Card body-->*/}
                                         </div>
