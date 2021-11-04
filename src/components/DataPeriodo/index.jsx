@@ -1,12 +1,12 @@
 import './style.css'
 
-import { DateRangePicker } from 'rsuite';
-
-// or
-// import DateRangePicker from 'rsuite/DateRangePicker';
+// import DatePicker from 'rsuite/DatePicker'
+import { DateRangePicker } from 'rsuite'
+import 'rsuite/dist/rsuite.min.css'; // or 'rsuite/dist/rsuite.min.css'
 
 function DataPeriodo() {
-    return(
+
+    return (
         <div>
             <DateRangePicker />
         </div>

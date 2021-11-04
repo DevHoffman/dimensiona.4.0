@@ -13,8 +13,9 @@
     "@fullcalendar/interaction": "^5.9.0",
     "@fullcalendar/react": "^5.9.0",
     "@fullcalendar/timegrid": "^5.9.0",
-    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styled-engine-sc": "^5.0.0-beta.5",
     "@popperjs/core": "^2.10.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -38,7 +39,6 @@
     "jquery-confirm": "^3.3.4",
     "jszip": "^3.7.1",
     "line-awesome": "^1.3.0",
-    "manifest-revision-webpack-plugin": "^0.4.1",
     "moment": "^2.29.1",
     "pace-js": "^1.2.4",
     "pdfmake": "^0.2.2",
@@ -59,16 +59,16 @@
     "react-pace-progress": "^2.0.0",
     "react-router-dom": "^5.3.0",
     "react-router-loading": "^0.4.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "react-select": "^5.1.0",
     "react-select-2": "^2.0.11",
     "react-transition-group": "^4.4.2",
     "request": "^2.88.2",
     "rsuite": "^5.1.0",
     "select2": "^4.1.0-rc.0",
-    "styled-components": "^5.3.1",
+    "styled-components": "^5.3.3",
     "sweetalert2": "^11.1.7",
-    "sync-exec": "^0.6.2",
+    "sync-exec": "^0.4.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -94,10 +94,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "typescript": "^4.4.3"
   }
 }
