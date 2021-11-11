@@ -57,7 +57,6 @@ function DataPeriodo() {
                                             startText="Data Inicial"
                                             endText="Data Final"
                                             value={value}
-                                            mask="__/__/____"
                                             onChange={(newValue) => {
                                                 let data = new Date(newValue[0])
                                                 let data2 = new Date(newValue[1])
