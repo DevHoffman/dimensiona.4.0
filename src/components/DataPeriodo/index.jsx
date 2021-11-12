@@ -6,14 +6,14 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
-// import MobileDateRangePicker from '@mui/lab/MobileDateRangePicker'
+import MobileDateRangePicker from '@mui/lab/MobileDateRangePicker'
 import DesktopDateRangePicker from '@mui/lab/DesktopDateRangePicker'
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 function DataPeriodo() {
-    const [value, setValue] = useState([null, null])
+    const [value, setValue] = useState([new Date(), new Date()])
 
     return (
         <div>
@@ -36,14 +36,19 @@ function DataPeriodo() {
                             <div className="position-relative d-flex align-items-center justify-content-center w-550px">
                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                                     <Stack spacing={3}>
-                                        {/* <MobileDateRangePicker
+                                        <MobileDateRangePicker
                                             startText="Data Inicial"
                                             endText="Data Final"
+                                            inputFormat="dd/MM/yyyy"
                                             value={value}
                                             onChange={(newValue) => {
-                                                console.log(new Date())
+                                                let data = new Date(newValue[0])
+                                                let data2 = new Date(newValue[1])
+                                                data = data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear();
+                                                data2 = data2.getDate() + '/' + (data2.getMonth() + 1) + '/' + data2.getFullYear();
+
                                                 setValue(newValue)
-                                                document.getElementById('data').innerText = newValue
+                                                document.getElementById('data').innerText = data + ' - ' + data2
                                             }}
                                             renderInput={(startProps, endProps) => (
                                                 <Fragment>
@@ -52,17 +57,17 @@ function DataPeriodo() {
                                                     <TextField {...endProps} />
                                                 </Fragment>
                                             )}
-                                        /> */}
+                                        />
                                         <DesktopDateRangePicker
                                             startText="Data Inicial"
                                             endText="Data Final"
+                                            inputFormat="dd/MM/yyyy"
                                             value={value}
                                             onChange={(newValue) => {
                                                 let data = new Date(newValue[0])
                                                 let data2 = new Date(newValue[1])
-                                                data = data.getDay() + '/' + data.getMonth() + '/' + data.getFullYear()
-                                                data2 = data2.getDay() + '/' + data2.getMonth() + '/' + data2.getFullYear()
-                                                console.log(data, data2)
+                                                data = data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear();
+                                                data2 = data2.getDate() + '/' + (data2.getMonth() + 1) + '/' + data2.getFullYear();
                                                 
                                                 setValue(newValue)
                                                 document.getElementById('data').innerText = data + ' - ' + data2
