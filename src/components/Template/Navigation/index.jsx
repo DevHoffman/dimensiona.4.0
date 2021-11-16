@@ -22,7 +22,16 @@ function Navigation() {
         segment = 'Operadores em Tempo Real'
     }
     else if (url.substring(url.lastIndexOf('/') + 1) === 'CampanhaRelatorio') {
-        segment = 'Relatórios das Campanhas'
+        segment = 'Relatórios por Campanha'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CoordenadorRelatorio') {
+        segment = 'Relatórios por Coordenador'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'SupervisorRelatorio') {
+        segment = 'Relatórios por Supervisor'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'OperadorRelatorio') {
+        segment = 'Relatórios por Operador'
     }
     else {
         segment = url.substring(url.lastIndexOf('/') + 1)

@@ -24,7 +24,16 @@ function Navbar() {
         segment = 'Operadores em Tempo Real'
     }
     else if (url.substring(url.lastIndexOf('/') + 1) === 'CampanhaRelatorio') {
-        segment = 'Relatórios das Campanhas'
+        segment = 'Relatórios por Campanha'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'CoordenadorRelatorio') {
+        segment = 'Relatórios por Coordenador'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'SupervisorRelatorio') {
+        segment = 'Relatórios por Supervisor'
+    }
+    else if (url.substring(url.lastIndexOf('/') + 1) === 'OperadorRelatorio') {
+        segment = 'Relatórios por Operador'
     }
     else {
         segment = url.substring(url.lastIndexOf('/') + 1)
@@ -127,13 +136,43 @@ function Navbar() {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <Link to="/CampanhaRelatorio" className={segment === 'Relatórios das Campanhas' ? 'menu-link active' : 'menu-link'}>
+                                <Link to="/CampanhaRelatorio" className={segment === 'Relatórios por Campanha' ? 'menu-link active' : 'menu-link'}>
                                     <span className="menu-icon">
                                         {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
                                         <FontAwesomeIcon icon={faBuilding} />
                                         {/* <!--end::Svg Icon-->*/}
                                     </span>
                                     <span className="menu-title">Campanha</span>
+                                </Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/CoordenadorRelatorio" className={segment === 'Relatórios por Coordenador' ? 'menu-link active' : 'menu-link'}>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faCrown} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Coordenador</span>
+                                </Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/SupervisorRelatorio" className={segment === 'Relatórios por Supervisor' ? 'menu-link active' : 'menu-link'}>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faUserTie} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Supervisor</span>
+                                </Link>
+                            </div>
+                            <div className="menu-item">
+                                <Link to="/OperadorRelatorio" className={segment === 'Relatórios por Operador' ? 'menu-link active' : 'menu-link'}>
+                                    <span className="menu-icon">
+                                        {/* <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->*/}
+                                        <FontAwesomeIcon icon={faUser} />
+                                        {/* <!--end::Svg Icon-->*/}
+                                    </span>
+                                    <span className="menu-title">Operador</span>
                                 </Link>
                             </div>
 

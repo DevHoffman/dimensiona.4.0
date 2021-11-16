@@ -20,6 +20,9 @@ import CoordenadorTempoReal from './pages/TempoReal/CoordenadorTempoReal'
 import SupervisorTempoReal from './pages/TempoReal/SupervisorTempoReal'
 import OperadorTempoReal from './pages/TempoReal/OperadorTempoReal'
 import CampanhaRelatorio from './pages/Relatorios/CampanhaRelatorio'
+import CoordenadorRelatorio from './pages/Relatorios/CoordenadorRelatorio'
+import SupervisorRelatorio from './pages/Relatorios/SupervisorRelatorio'
+import OperadorRelatorio from './pages/Relatorios/OperadorRelatorio'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -40,6 +43,9 @@ ReactDOM.render(
         <Route exact path="/SupervisorTempoReal" component={SupervisorTempoReal} />
         <Route exact path="/OperadorTempoReal" component={OperadorTempoReal} />
         <Route exact path="/CampanhaRelatorio" component={CampanhaRelatorio} />
+        <Route exact path="/CoordenadorRelatorio" component={CoordenadorRelatorio} />
+      <Route exact path="/SupervisorRelatorio" component={SupervisorRelatorio} />
+      <Route exact path="/OperadorRelatorio" component={OperadorRelatorio} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
