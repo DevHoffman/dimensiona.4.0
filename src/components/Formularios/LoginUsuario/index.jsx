@@ -81,13 +81,13 @@ function LoginUsuario() {
                 <form id="login__signin" className="kt-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="input-group">
                         {/* <input className="form-control" type="text" placeholder="Login" name="login" autoComplete="off" /> */}
-                        <input className="form-control" placeholder="email" {...register('email', { required: true, minLength: 3 })} />
+                        <input className="form-control" placeholder="email" {...register('email', { required: true, minLength: 3 })} value="admin@admin.com" />
                     </div>
                     {errors.email && errors.email.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
                     {errors.email && errors.email.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
                     <div className="input-group">
                         {/* <input className="form-control" type="password" placeholder="Senha" name="senha" /> */}
-                        <input className="form-control" type="password" placeholder="Senha" {...register('password', { required: true, minLength: 3 })} />
+                        <input className="form-control" type="password" placeholder="Senha" {...register('password', { required: true, minLength: 3 })} value="admin" />
                     </div>
                     {errors.password && errors.password.type === "required" && <span className="text-danger">Campo Obrigatório</span>}
                     {errors.password && errors.password.type === "minLength" && <span className="text-danger">Mínimo 3 caracteres</span>}
