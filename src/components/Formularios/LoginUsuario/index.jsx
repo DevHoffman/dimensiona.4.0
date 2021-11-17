@@ -28,7 +28,6 @@ function LoginUsuario() {
             .then(response => {
                 window.localStorage.setItem("token", JSON.stringify(response.data.access_token)) // Usando API do Max
                 // window.localStorage.setItem("user_data", JSON.stringify(response.data.sessionData)) // Usando a minha API (Salva os dados do usuario no storage)
-                var timeout = 3000
                 button.style.display = 'none' // Some com o Loader
                 iziToast.destroy()
                 console.clear()
@@ -36,11 +35,9 @@ function LoginUsuario() {
                     title: 'Usuário Autenticado',
                     position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
                     transitionOut: 'fadeOut',
-                    timeout: timeout,
                 })
-                setTimeout(() => { // Redireciona para Dashboard
-                    history.push("./")
-                }, timeout)
+                
+                history.push("./")
                 return response
             })
             .catch(error => {
@@ -72,6 +69,7 @@ function LoginUsuario() {
                 return error
             })
     }
+
     return( 
         <div>
             <div className="kt-login__signin">
