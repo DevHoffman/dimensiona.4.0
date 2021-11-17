@@ -218,7 +218,7 @@ $kt-media-breakpoints: (
 }
 
 #background-image{
-  background-image: url('../../components/img/bg/bg-1.jpg');
+  background-image: url('../../components/assets/img/bg/bg-1.jpg');
   background-size: cover;
   background-position: center;
   min-height: calc(100vh);
