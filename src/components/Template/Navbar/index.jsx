@@ -1,6 +1,6 @@
 import "./style.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChartLine, faUsersCog, faAngleDoubleLeft, faBuilding, faUserTie, faCrown, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faUsersCog, faBuilding, faUserTie, faCrown, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from "react-router-dom"
 
@@ -47,13 +47,13 @@ function Navbar() {
                     {/* <!--begin::Logo-->*/}
                     <Link to="/" title="Redireciona para Home">
                         {/* <img alt="Logo" src="/assets/media/logos/logo-1-dark.svg" className="h-25px logo" /> */}
-                        <h1 className="logo-color-light">Dimensiona</h1>
+                        <h1 className="logo-color-light">React App</h1>
                     </Link>
                     {/* <!--end::Logo-->*/}
                     {/* <!--begin::Aside toggler-->*/}
                     <div id="kt_aside_toggle" className="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
                         {/* <!--begin::Svg Icon | path: icons/duotune/arrows/arr079.svg-->*/}
-                        <FontAwesomeIcon icon={faAngleDoubleLeft} />
+                        {/* <FontAwesomeIcon icon={faAngleDoubleLeft} /> */}
                         {/* <!--end::Svg Icon-->*/}
                     </div>
                     {/* <!--end::Aside toggler-->*/}
