@@ -47,7 +47,7 @@ function Navbar() {
                     {/* <!--begin::Logo-->*/}
                     <Link to="/" title="Redireciona para Home">
                         {/* <img alt="Logo" src="/assets/media/logos/logo-1-dark.svg" className="h-25px logo" /> */}
-                        <h1 className="logo-color-light">React App</h1>
+                        <h1 className="logo-color-light">Dimensiona</h1>
                     </Link>
                     {/* <!--end::Logo-->*/}
                     {/* <!--begin::Aside toggler-->*/}
