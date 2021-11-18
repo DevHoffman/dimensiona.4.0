@@ -11,8 +11,8 @@ function Footer() {
                     {/* <!--begin::Copyright-->*/}
                     <div className="text-dark order-2 order-md-1 d-flex">
                         <span className="text-muted fw-bold me-1">2021©</span>
-                        <a href="https://keenthemes.com" target="_blank" className="text-gray-800 text-hover-primary" rel="noreferrer">Hoffman</a>
-                        <p>. Todos os Direitos Reservados</p>
+                        {/* <a href="https://keenthemes.com" target="_blank" className="text-gray-800 text-hover-primary" rel="noreferrer">Hoffman</a> */}
+                        <p>Hoffman. Todos os Direitos Reservados</p>
                     </div>
                     {/* <!--end::Copyright-->*/}
                     {/* <!--begin::Menu-->*/}
