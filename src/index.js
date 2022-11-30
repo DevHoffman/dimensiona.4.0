@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import './style-global.css'
 
@@ -23,7 +23,8 @@ import OperadorRelatorio from './pages/Relatorios/OperadorRelatorio'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <BrowserRouter>
+      <Routes>
         <Route exact path="/" component={Dimensiona} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Cadastrar" component={Cadastrar} />
@@ -38,9 +39,10 @@ ReactDOM.render(
         <Route exact path="/OperadorTempoReal" component={OperadorTempoReal} />
         <Route exact path="/CampanhaRelatorio" component={CampanhaRelatorio} />
         <Route exact path="/CoordenadorRelatorio" component={CoordenadorRelatorio} />
-      <Route exact path="/SupervisorRelatorio" component={SupervisorRelatorio} />
-      <Route exact path="/OperadorRelatorio" component={OperadorRelatorio} />
-    </Router>
+        <Route exact path="/SupervisorRelatorio" component={SupervisorRelatorio} />
+        <Route exact path="/OperadorRelatorio" component={OperadorRelatorio} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
